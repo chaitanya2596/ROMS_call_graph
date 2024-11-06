@@ -1,0 +1,8 @@
+README
+
+to get a call graph for the roms code,
+
+add the correct part of the Build_roms folder to the basefuncName.cpp file and then 
+just run the callGraphGen.sh file 
+```
+
