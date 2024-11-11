@@ -14,10 +14,11 @@ struct FunctionData
     std::vector<std::string> callees;
 };
 
-void parseFortranFiles(const std::string &directory, std::unordered_map<std::string, FunctionData> &callGraph)
+void parseFortranFiles(const std::string &directory, std::unordered_map<std::string, FunctionData> &callGraph, bool includeNf90)
 {
     std::regex callRegex(R"(\bCALL\s+(\w+))");                                                     // Detects function calls
     std::regex defRegex(R"(^\s*(program|subroutine|function|module)\s+(\w+))", std::regex::icase); // Detects definitions
+    std::regex nf90Regex(R"(\bnf90_\w+)"); // Detects nf90_ functions
     std::string currentFunction;
 
     for (const auto &entry : fs::recursive_directory_iterator(directory))
@@ -34,6 +35,12 @@ void parseFortranFiles(const std::string &directory, std::unordered_map<std::str
             std::string line;
             while (std::getline(file, line))
             {
+                // Ignore lines that start with '!'
+                if (line.empty() || line[0] == '!')
+                {
+                    continue;
+                }
+
                 std::smatch match;
                 if (std::regex_search(line, match, defRegex))
                 {
@@ -47,28 +54,27 @@ void parseFortranFiles(const std::string &directory, std::unordered_map<std::str
                         callGraph[currentFunction].callees.push_back(match[1]);
                     }
                 }
+                else if (includeNf90 && std::regex_search(line, match, nf90Regex))
+                {
+                    if (!currentFunction.empty())
+                    {
+                        callGraph[currentFunction].callees.push_back(match[0]);
+                    }
+                }
             }
         }
     }
 }
 
-void outputCallGraphDot(const std::unordered_map<std::string, FunctionData> &callGraph)
-{
-    std::ofstream outFile("call_graph.dot");
-    outFile << "digraph CallGraph {" << std::endl;
-    for (const auto &[caller, data] : callGraph)
-    {
-        for (const auto &callee : data.callees)
-        {
-            outFile << "    \"" << caller << " (" << data.fileName << ")\" -> \"" << callee << "\";" << std::endl;
-        }
-    }
-    outFile << "}" << std::endl;
-}
-
 void outputCallGraphText(const std::unordered_map<std::string, FunctionData> &callGraph)
 {
-    std::ofstream outFile("base_call_graph.txt");
+    std::ofstream outFile("build_graph/base_call_graph.txt");
+    if (!outFile.is_open())
+    {
+        std::cerr << "Error opening output file" << std::endl;
+        return;
+    }
+
     for (const auto &[caller, data] : callGraph)
     {
         outFile << caller << " (" << data.fileName << ") -> ";
@@ -82,21 +88,26 @@ void outputCallGraphText(const std::unordered_map<std::string, FunctionData> &ca
             outFile << callee;
             first = false;
         }
-        outFile << std::endl
-                << std::endl;
+        outFile << std::endl << std::endl;
     }
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-    // replace the Build_roms directory path here
-    std::string directory = "H:\IISc\Call_Graph\callGraph_ioecopy"; 
+    if (argc < 2)
+    {
+        std::cerr << "Usage: " << argv[0] << " <directory> [--include-nf90]" << std::endl;
+        return 1;
+    }
+
+    std::string directory = argv[1];
+    bool includeNf90 = (argc > 2 && std::string(argv[2]) == "--include-nf90");
+
     std::unordered_map<std::string, FunctionData> callGraph;
 
-    parseFortranFiles(directory, callGraph);
-    // outputCallGraphDot(callGraph);  // Output DOT format
+    parseFortranFiles(directory, callGraph, includeNf90);
     outputCallGraphText(callGraph); // Output text format
 
-    std::cout << "Call graph generated in call_graph.dot and base_call_graph.txt" << std::endl;
+    std::cout << "dependency graph generated in base_call_graph.txt" << std::endl;
     return 0;
 }

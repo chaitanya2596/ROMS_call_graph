@@ -70,8 +70,8 @@ void writeCSV(const string& filename, const map<string, pair<string, vector<stri
 }
 
 int main() {
-    string inputFilename = "base_call_graph.txt"; // Update this to your actual input file path
-    string outputFilename = "ROMS_call_graph.csv"; // Update this to your desired output file path
+    string inputFilename = "build_graph/base_call_graph.txt"; // Update this to your actual input file path
+    string outputFilename = "build_graph/ROMS_call_graph.csv"; // Update this to your desired output file path
 
     // Parse the input file
     map<string, pair<string, vector<string>>> callGraph = parseFile(inputFilename);
