@@ -1,8 +1,25 @@
-README
+Call Graph Generator
+This project generates a call graph from Fortran source files and outputs it in text format. 
+Users have the option to include nf90 functions by enabling the --include-nf90 flag in the Makefile.
 
-to get a call graph for the roms code,
 
-add the correct part of the Build_roms folder to the basefuncName.cpp file and then 
-just run the callGraphGen.sh file 
-```
+Prerequisites
+    g++ (GCC) with C++17 support
+    Python 3
 
+Building and executing the Project
+    Before building the project, ensure the following configurations in the Makefile:
+        1. Set the DIR variable to the path of the Build_roms directory.
+        2. Specify the desired value for INCLUDE_NF90 to include or exclude nf90 functions.
+        3. StartFunction can be mentioned to get call graph from that particular function.
+
+To build the project, run the following command in the root directory: 
+    
+    make 
+
+Cleaning Up
+To clean up the build artifacts, run:
+    
+    make clean
+
+This will remove the build_graph directory and its contents.

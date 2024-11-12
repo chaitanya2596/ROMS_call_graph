@@ -1,0 +1,18 @@
+Generating the Call Graph
+
+1. Parse Fortran Files
+The basefuncName executable parses Fortran files from a specified directory to generate a dependency graph for all the function in text format.
+
+<directory>: Path to the directory containing the compiled ROMS code.
+--include-nf90: Optional flag to include nf90 functions in the call graph.
+
+2. Convert to CSV
+The csv executable converts the call graph from text format to CSV format for easier analysis.
+
+3. Generate Call Graph.
+The callGraph.py script analyzes the CSV dependency graph and converts it into a call graph and generates a report of any recursive functions if present.
+
+callGraph.txt: Gives the Call Graph for the given Function.
+
+
+Running the makefile will generate callGraph.txt and log any recursive functions in build_graph/recursive_Func.log.
