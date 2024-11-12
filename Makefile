@@ -17,9 +17,9 @@ $(OBJDIR):
 $(OBJDIR)/basefuncName: basefuncName.cpp
 	$(CXX) $(CXXFLAGS) -o $(OBJDIR)/basefuncName basefuncName.cpp
 ifeq ($(INCLUDE_NF90), 1)
-	$(OBJDIR)/basefuncName DIR --include-nf90
+	$(OBJDIR)/basefuncName $(DIR) --include-nf90
 else
-	$(OBJDIR)/basefuncName DIR
+	$(OBJDIR)/basefuncName $(DIR)
 endif
 	@echo "Parsing done"
 
