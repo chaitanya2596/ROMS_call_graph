@@ -16,11 +16,11 @@ $(OBJDIR):
 
 $(OBJDIR)/basefuncName: basefuncName.cpp
 	$(CXX) $(CXXFLAGS) -o $(OBJDIR)/basefuncName basefuncName.cpp
-ifeq ($(INCLUDE_NF90), 1)
-	$(OBJDIR)/basefuncName $(DIR) --include-nf90
-else
-	$(OBJDIR)/basefuncName $(DIR)
-endif
+	@if [ "$(INCLUDE_NF90)" -eq "1" ]; then \
+	    $(OBJDIR)/basefuncName $(DIR) --include-nf90; \
+	else \
+	    $(OBJDIR)/basefuncName $(DIR); \
+	fi
 	@echo "Parsing done"
 
 $(OBJDIR)/csv: csv.cpp
@@ -30,9 +30,15 @@ $(OBJDIR)/csv: csv.cpp
 	@echo "Coverting to csv done"
 
 callGraph: $(OBJDIR)/csv
-	python3 callGraph.py build_graph/ROMS_call_graph.csv StartFunction callGraph.txt > $(OBJDIR)/recursive_Func.log
+	@if [ "$(INCLUDE_NF90)" -eq "1" ]; then \
+	    python3 callGraph.py build_graph/ROMS_call_graph.csv $(StartFunction) callGraph_nf90_included.txt > $(OBJDIR)/recursive_Func.log; \
+		echo "call graph is generated as callGraph_nf90_included.txt"; \
+	else \
+	    python3 callGraph.py build_graph/ROMS_call_graph.csv $(StartFunction) callGraph.txt > $(OBJDIR)/recursive_Func.log; \
+		echo "call graph is generated as callGraph.txt"; \
+	fi
 
-	@echo "call graph is generated as callGraph.txt"
+	
 
 clean:
 	rm -rf $(OBJDIR) 
