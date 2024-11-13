@@ -17,7 +17,6 @@ To build the project, run the following command in the root directory:
     
     make 
 
-Cleaning Up
 ################       Always make sure to clean up the build       ################
 ################  artifacts before running the make command again.  ################
 
