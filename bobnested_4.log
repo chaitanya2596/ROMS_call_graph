@@ -1,0 +1,1597 @@
+--------------------------------------------------------------------------------
+ Model Input Parameters:  ROMS/TOMS version 3.9  
+                          Thursday - October 24, 2024 -  4:13:11 PM
+--------------------------------------------------------------------------------
+
+ Bay of Bengal (ROMS/TOMS, 1/48 deg -- Nested)
+
+ Operating system  : Linux
+ CPU/hardware      : x86_64
+ Compiler system   : gfortran
+ Compiler command  : /apps/installed/openmpi/41/bin/mpif90
+ Compiler flags    : -frepack-arrays -O3 -ffast-math -
+ OCN Communicator  : 0,  PET size = 4
+
+ Input Script      : /scratch/chaitanyavp/BOB/nested_Bob_Exp/roms_bob_hires_nesting.in
+
+ SVN Root URL     : 
+ SVN Revision     : 
+
+ Local Root       : /scratch/chaitanyavp/BOB/nested_Bob_Exp/trunk
+ Header Dir       : /scratch/chaitanyavp/BOB/nested_Bob_Exp
+ Header file      : bob_hires_nested.h
+ Analytical Dir   : /scratch/chaitanyavp/BOB/nested_Bob_Exp
+
+ Resolution, Grid 01: 1055x942x40,  Parallel Nodes: 4,  Tiling: 2x2
+
+
+ Physical Parameters, Grid: 01
+ =============================
+
+          2  ntimes            Number of timesteps for 3-D equations.
+     30.000  dt                Timestep size (s) for 3-D equations.
+        120  ndtfast           Number of timesteps for 2-D equations between
+                                 each 3D timestep.
+          1  ERstr             Starting ensemble/perturbation run number.
+          1  ERend             Ending ensemble/perturbation run number.
+          0  nrrec             Number of restart records to read from disk.
+          T  LcycleRST         Switch to recycle time-records in restart file.
+          0  nRST              Number of timesteps between the writing of data
+                                 into restart fields.
+          1  ninfo             Number of timesteps between print of information
+                                 to standard output.
+          T  ldefout           Switch to create a new output NetCDF file(s).
+          0  nHIS              Number of timesteps between the writing fields
+                                 into history file.
+          0  nQCK              Number of timesteps between the writing fields
+                                 into quicksave file.
+          1  ntsAVG            Starting timestep for the accumulation of output
+                                 time-averaged data.
+       1440  nAVG              Number of timesteps between the writing of
+                                 time-averaged data into averages file.
+       1440  ndefAVG           Number of timesteps between creation of new
+                                 time-averaged file.
+ 1.0000E+01  nl_tnu4(01)       NLM Horizontal, biharmonic mixing coefficient
+                                 (m4/s) for tracer 01: temp
+ 1.0000E+01  nl_tnu4(02)       NLM Horizontal, biharmonic mixing coefficient
+                                 (m4/s) for tracer 02: salt
+ 5.0000E+01  nl_visc2          NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for momentum.
+          F  LuvSponge         Turning OFF sponge on horizontal momentum.
+          F  LtracerSponge(01) Turning OFF sponge on tracer 01: temp
+          F  LtracerSponge(02) Turning OFF sponge on tracer 02: salt
+ 1.0000E-06  Akt_bak(01)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 01: temp
+ 1.0000E-06  Akt_bak(02)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 02: salt
+ 1.0000E-05  Akv_bak           Background vertical mixing coefficient (m2/s)
+                                 for momentum.
+ 5.0000E-04  rdrg              Linear bottom drag coefficient (m/s).
+ 1.0000E-03  rdrg2             Quadratic bottom drag coefficient.
+ 5.0000E-03  Zob               Bottom roughness (m).
+ 2.0000E+00  blk_ZQ            Height (m) of surface air humidity measurement.
+ 2.0000E+00  blk_ZT            Height (m) of surface air temperature measurement.
+ 1.0000E+01  blk_ZW            Height (m) of surface winds measurement.
+          1  lmd_Jwt           Jerlov water type.
+          2  Vtransform        S-coordinate transformation equation.
+          4  Vstretching       S-coordinate stretching function.
+ 7.0000E+00  theta_s           S-coordinate surface control parameter.
+ 2.0000E-01  theta_b           S-coordinate bottom  control parameter.
+    150.000  Tcline            S-coordinate surface/bottom layer width (m) used
+                                 in vertical coordinate stretching.
+   1025.000  rho0              Mean density (kg/m3) for Boussinesq approximation.
+      0.000  dstart            Time-stamp assigned to model initialization (days).
+      0.000  tide_start        Reference time origin for tidal forcing (days).
+20100101.00  time_ref          Reference time for units attribute (yyyymmdd.dd)
+ 1.0000E+00  Tnudg(01)         Nudging/relaxation time scale (days)
+                                 for tracer 01: temp
+ 1.0000E+00  Tnudg(02)         Nudging/relaxation time scale (days)
+                                 for tracer 02: salt
+ 0.0000E+00  Znudg             Nudging/relaxation time scale (days)
+                                 for free-surface.
+ 1.0000E+00  M2nudg            Nudging/relaxation time scale (days)
+                                 for 2D momentum.
+ 1.0000E+00  M3nudg            Nudging/relaxation time scale (days)
+                                 for 3D momentum.
+ 2.0000E+01  obcfac            Factor between passive and active
+                                 open boundary conditions.
+          F  VolCons(1)        NLM western  edge boundary volume conservation.
+          F  VolCons(2)        NLM southern edge boundary volume conservation.
+          F  VolCons(3)        NLM eastern  edge boundary volume conservation.
+          F  VolCons(4)        NLM northern edge boundary volume conservation.
+     10.000  T0                Background potential temperature (C) constant.
+     35.000  S0                Background salinity (PSU) constant.
+     -1.000  gamma2            Slipperiness variable: free-slip (1.0) or 
+                                                      no-slip (-1.0).
+          F  LuvSrc            Turning OFF momentum point Sources/Sinks.
+          F  LwSrc             Turning OFF volume influx point Sources/Sinks.
+          F  LtracerSrc(01)    Turning OFF point Sources/Sinks on tracer 01: temp
+          F  LtracerSrc(02)    Turning OFF point Sources/Sinks on tracer 02: salt
+          F  LsshCLM           Turning OFF processing of SSH climatology.
+          F  Lm2CLM            Turning OFF processing of 2D momentum climatology.
+          F  Lm3CLM            Turning OFF processing of 3D momentum climatology.
+          F  LtracerCLM(01)    Turning OFF processing of climatology tracer 01: temp
+          F  LtracerCLM(02)    Turning OFF processing of climatology tracer 02: salt
+          F  LnudgeM2CLM       Turning OFF nudging of 2D momentum climatology.
+          F  LnudgeM3CLM       Turning OFF nudging of 3D momentum climatology.
+          F  LnudgeTCLM(01)    Turning OFF nudging of climatology tracer 01: temp
+          F  LnudgeTCLM(02)    Turning OFF nudging of climatology tracer 02: salt
+
+          T  Aout(idFsur)      Write out averaged free-surface.
+          T  Aout(idUbar)      Write out averaged 2D U-momentum component.
+          T  Aout(idVbar)      Write out averaged 2D V-momentum component.
+          T  Aout(idUvel)      Write out averaged 3D U-momentum component.
+          T  Aout(idVvel)      Write out averaged 3D V-momentum component.
+          T  Aout(idu3dE)      Write out averaged 3D U-eastward  at RHO-points.
+          T  Aout(idv3dN)      Write out averaged 3D V-northward at RHO-points.
+          T  Aout(idWvel)      Write out averaged W-momentum component.
+          T  Aout(idOvel)      Write out averaged omega vertical velocity.
+          T  Aout(idTvar)      Write out averaged tracer 01: temp
+          T  Aout(idTvar)      Write out averaged tracer 02: salt
+          T  Aout(idUsms)      Write out averaged surface U-momentum stress.
+          T  Aout(idVsms)      Write out averaged surface V-momentum stress.
+          T  Aout(idTsur)      Write out averaged surface net heat flux.
+          T  Aout(idTsur)      Write out averaged surface net salt flux.
+          T  Aout(idSrad)      Write out averaged shortwave radiation flux.
+          T  Aout(idLrad)      Write out averaged longwave radiation flux.
+          T  Aout(idLhea)      Write out averaged latent heat flux.
+          T  Aout(idShea)      Write out averaged sensible heat flux.
+          T  Aout(idevap)      Write out averaged evaporation rate.
+          T  Aout(idrain)      Write out averaged rain rate.
+          T  Aout(idDano)      Write out averaged density anomaly.
+          T  Aout(idVvis)      Write out averaged vertical viscosity: AKv.
+          T  Aout(idTdif)      Write out averaged vertical diffusion: AKt(itemp).
+          T  Aout(idSdif)      Write out averaged vertical diffusion: AKt(isalt).
+          T  Aout(idHsbl)      Write out averaged depth of surface boundary layer.
+          T  Aout(idHbbl)      Write out averaged depth of bottom boundary layer.
+
+ Output/Input Files:
+
+               Output Restart File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/output/test48_rst_a.nc
+         Prefix for Averages Files:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/output/avg/test48_avg_a
+                   Input Grid File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc
+    Nesting grid connectivity File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/bob_ngcby3.nc
+      Input Nonlinear Initial File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/roms_IC_NEMO2ROMS_20100101_rem.nc
+                Tidal Forcing File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB_Tidal_Forcing.nc
+             Input Forcing File 01:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/ERA_BOB_UV_2010-18.nc
+             Input Forcing File 02:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/ERA_BOB_MSLP_2010-18_DAILY_NOLEAP.nc
+             Input Forcing File 03:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/TRMM_PPT_RATE_Final.nc
+             Input Forcing File 04:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/Tropflux_2010-18_final.nc
+    Input Lateral Boundary File 01:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/roms_LBC_NEMO2ROMS_JFM2010.nc
+  ROMS I/O variables Metadata File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/varinfo.dat
+
+ Resolution, Grid 02: 900x600x40,  Parallel Nodes: 4,  Tiling: 2x2
+
+
+ Physical Parameters, Grid: 02
+ =============================
+
+          6  ntimes            Number of timesteps for 3-D equations.
+     10.000  dt                Timestep size (s) for 3-D equations.
+        120  ndtfast           Number of timesteps for 2-D equations between
+                                 each 3D timestep.
+          1  ERstr             Starting ensemble/perturbation run number.
+          1  ERend             Ending ensemble/perturbation run number.
+          0  nrrec             Number of restart records to read from disk.
+          T  LcycleRST         Switch to recycle time-records in restart file.
+          0  nRST              Number of timesteps between the writing of data
+                                 into restart fields.
+          1  ninfo             Number of timesteps between print of information
+                                 to standard output.
+          T  ldefout           Switch to create a new output NetCDF file(s).
+          0  nHIS              Number of timesteps between the writing fields
+                                 into history file.
+          0  nQCK              Number of timesteps between the writing fields
+                                 into quicksave file.
+          1  ntsAVG            Starting timestep for the accumulation of output
+                                 time-averaged data.
+       4320  nAVG              Number of timesteps between the writing of
+                                 time-averaged data into averages file.
+       4320  ndefAVG           Number of timesteps between creation of new
+                                 time-averaged file.
+ 1.0000E+01  nl_tnu4(01)       NLM Horizontal, biharmonic mixing coefficient
+                                 (m4/s) for tracer 01: temp
+ 1.0000E+01  nl_tnu4(02)       NLM Horizontal, biharmonic mixing coefficient
+                                 (m4/s) for tracer 02: salt
+ 5.0000E+01  nl_visc2          NLM Horizontal, harmonic mixing coefficient
+                                 (m2/s) for momentum.
+          F  LuvSponge         Turning OFF sponge on horizontal momentum.
+          F  LtracerSponge(01) Turning OFF sponge on tracer 01: temp
+          F  LtracerSponge(02) Turning OFF sponge on tracer 02: salt
+ 1.0000E-06  Akt_bak(01)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 01: temp
+ 1.0000E-06  Akt_bak(02)       Background vertical mixing coefficient (m2/s)
+                                 for tracer 02: salt
+ 1.0000E-05  Akv_bak           Background vertical mixing coefficient (m2/s)
+                                 for momentum.
+ 5.0000E-04  rdrg              Linear bottom drag coefficient (m/s).
+ 1.0000E-03  rdrg2             Quadratic bottom drag coefficient.
+ 5.0000E-03  Zob               Bottom roughness (m).
+ 2.0000E+00  blk_ZQ            Height (m) of surface air humidity measurement.
+ 2.0000E+00  blk_ZT            Height (m) of surface air temperature measurement.
+ 1.0000E+01  blk_ZW            Height (m) of surface winds measurement.
+          1  lmd_Jwt           Jerlov water type.
+          2  Vtransform        S-coordinate transformation equation.
+          4  Vstretching       S-coordinate stretching function.
+ 7.0000E+00  theta_s           S-coordinate surface control parameter.
+ 2.0000E-01  theta_b           S-coordinate bottom  control parameter.
+    150.000  Tcline            S-coordinate surface/bottom layer width (m) used
+                                 in vertical coordinate stretching.
+   1025.000  rho0              Mean density (kg/m3) for Boussinesq approximation.
+      0.000  dstart            Time-stamp assigned to model initialization (days).
+      0.000  tide_start        Reference time origin for tidal forcing (days).
+20100101.00  time_ref          Reference time for units attribute (yyyymmdd.dd)
+ 1.0000E+00  Tnudg(01)         Nudging/relaxation time scale (days)
+                                 for tracer 01: temp
+ 1.0000E+00  Tnudg(02)         Nudging/relaxation time scale (days)
+                                 for tracer 02: salt
+ 0.0000E+00  Znudg             Nudging/relaxation time scale (days)
+                                 for free-surface.
+ 1.0000E+00  M2nudg            Nudging/relaxation time scale (days)
+                                 for 2D momentum.
+ 1.0000E+00  M3nudg            Nudging/relaxation time scale (days)
+                                 for 3D momentum.
+ 2.0000E+01  obcfac            Factor between passive and active
+                                 open boundary conditions.
+          F  VolCons(1)        NLM western  edge boundary volume conservation.
+          F  VolCons(2)        NLM southern edge boundary volume conservation.
+          F  VolCons(3)        NLM eastern  edge boundary volume conservation.
+          F  VolCons(4)        NLM northern edge boundary volume conservation.
+     10.000  T0                Background potential temperature (C) constant.
+     35.000  S0                Background salinity (PSU) constant.
+     -1.000  gamma2            Slipperiness variable: free-slip (1.0) or 
+                                                      no-slip (-1.0).
+          F  LuvSrc            Turning OFF momentum point Sources/Sinks.
+          F  LwSrc             Turning OFF volume influx point Sources/Sinks.
+          F  LtracerSrc(01)    Turning OFF point Sources/Sinks on tracer 01: temp
+          F  LtracerSrc(02)    Turning OFF point Sources/Sinks on tracer 02: salt
+          F  LsshCLM           Turning OFF processing of SSH climatology.
+          F  Lm2CLM            Turning OFF processing of 2D momentum climatology.
+          F  Lm3CLM            Turning OFF processing of 3D momentum climatology.
+          F  LtracerCLM(01)    Turning OFF processing of climatology tracer 01: temp
+          F  LtracerCLM(02)    Turning OFF processing of climatology tracer 02: salt
+          F  LnudgeM2CLM       Turning OFF nudging of 2D momentum climatology.
+          F  LnudgeM3CLM       Turning OFF nudging of 3D momentum climatology.
+          F  LnudgeTCLM(01)    Turning OFF nudging of climatology tracer 01: temp
+          F  LnudgeTCLM(02)    Turning OFF nudging of climatology tracer 02: salt
+
+          T  Aout(idFsur)      Write out averaged free-surface.
+          T  Aout(idUbar)      Write out averaged 2D U-momentum component.
+          T  Aout(idVbar)      Write out averaged 2D V-momentum component.
+          T  Aout(idUvel)      Write out averaged 3D U-momentum component.
+          T  Aout(idVvel)      Write out averaged 3D V-momentum component.
+          T  Aout(idu3dE)      Write out averaged 3D U-eastward  at RHO-points.
+          T  Aout(idv3dN)      Write out averaged 3D V-northward at RHO-points.
+          T  Aout(idWvel)      Write out averaged W-momentum component.
+          T  Aout(idOvel)      Write out averaged omega vertical velocity.
+          T  Aout(idTvar)      Write out averaged tracer 01: temp
+          T  Aout(idTvar)      Write out averaged tracer 02: salt
+          T  Aout(idUsms)      Write out averaged surface U-momentum stress.
+          T  Aout(idVsms)      Write out averaged surface V-momentum stress.
+          T  Aout(idTsur)      Write out averaged surface net heat flux.
+          T  Aout(idTsur)      Write out averaged surface net salt flux.
+          T  Aout(idSrad)      Write out averaged shortwave radiation flux.
+          T  Aout(idLrad)      Write out averaged longwave radiation flux.
+          T  Aout(idLhea)      Write out averaged latent heat flux.
+          T  Aout(idShea)      Write out averaged sensible heat flux.
+          T  Aout(idevap)      Write out averaged evaporation rate.
+          T  Aout(idrain)      Write out averaged rain rate.
+          T  Aout(idDano)      Write out averaged density anomaly.
+          T  Aout(idVvis)      Write out averaged vertical viscosity: AKv.
+          T  Aout(idTdif)      Write out averaged vertical diffusion: AKt(itemp).
+          T  Aout(idSdif)      Write out averaged vertical diffusion: AKt(isalt).
+          T  Aout(idHsbl)      Write out averaged depth of surface boundary layer.
+          T  Aout(idHbbl)      Write out averaged depth of bottom boundary layer.
+
+ Output/Input Files:
+
+               Output Restart File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/output/test48_rst_b.nc
+         Prefix for Averages Files:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/output/avg/test48_avg_b
+                   Input Grid File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc
+    Nesting grid connectivity File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/bob_ngcby3.nc
+      Input Nonlinear Initial File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_ini.nc
+             Input Forcing File 01:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/ERA_BOB_UV_2010-18.nc
+             Input Forcing File 02:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/ERA_BOB_MSLP_2010-18_DAILY_NOLEAP.nc
+             Input Forcing File 03:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/TRMM_PPT_RATE_Final.nc
+             Input Forcing File 04:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/Tropflux_2010-18_final.nc
+  ROMS I/O variables Metadata File:  /scratch/chaitanyavp/BOB/nested_Bob_Exp/varinfo.dat
+
+ Tile partition information for Grid 01:  1055x942x40  tiling: 2x2
+
+     tile     Istr     Iend     Jstr     Jend     Npts
+
+        0        1      528        1      471  9947520
+        1      529     1055        1      471  9928680
+        2        1      528      472      942  9947520
+        3      529     1055      472      942  9928680
+
+ Tile partition information for Grid 02:  900x600x40  tiling: 2x2
+
+     tile     Istr     Iend     Jstr     Jend     Npts
+
+        0        1      450        1      300  5400000
+        1      451      900        1      300  5400000
+        2        1      450      301      600  5400000
+        3      451      900      301      600  5400000
+
+ Tile minimum and maximum fractional coordinates for Grid 01:
+   (interior points only)
+
+     tile     Xmin     Xmax     Ymin     Ymax     grid
+
+        0     0.50   528.50     0.50   471.50  RHO-points
+        1   528.50  1055.50     0.50   471.50  RHO-points
+        2     0.50   528.50   471.50   942.50  RHO-points
+        3   528.50  1055.50   471.50   942.50  RHO-points
+
+        0     1.00   528.50     0.50   471.50    U-points
+        1   528.50  1055.00     0.50   471.50    U-points
+        2     1.00   528.50   471.50   942.50    U-points
+        3   528.50  1055.00   471.50   942.50    U-points
+
+        0     0.50   528.50     1.00   471.50    V-points
+        1   528.50  1055.50     1.00   471.50    V-points
+        2     0.50   528.50   471.50   942.00    V-points
+        3   528.50  1055.50   471.50   942.00    V-points
+
+ Tile minimum and maximum fractional coordinates for Grid 02:
+   (interior points only)
+
+     tile     Xmin     Xmax     Ymin     Ymax     grid
+
+        0     0.50   450.50     0.50   300.50  RHO-points
+        1   450.50   900.50     0.50   300.50  RHO-points
+        2     0.50   450.50   300.50   600.50  RHO-points
+        3   450.50   900.50   300.50   600.50  RHO-points
+
+        0     1.00   450.50     0.50   300.50    U-points
+        1   450.50   900.00     0.50   300.50    U-points
+        2     1.00   450.50   300.50   600.50    U-points
+        3   450.50   900.00   300.50   600.50    U-points
+
+        0     0.50   450.50     1.00   300.50    V-points
+        1   450.50   900.50     1.00   300.50    V-points
+        2     0.50   450.50   300.50   600.00    V-points
+        3   450.50   900.50   300.50   600.00    V-points
+
+ Maximum halo size in XI and ETA directions:
+
+               HaloSizeI(1) =    1620
+               HaloSizeJ(1) =    1452
+                TileSide(1) =     534
+                TileSize(1) =  255252
+
+
+ Maximum halo size in XI and ETA directions:
+
+               HaloSizeI(2) =    1395
+               HaloSizeJ(2) =     945
+                TileSide(2) =     459
+                TileSize(2) =  141831
+
+
+ Tracer Advection Scheme: NLM
+ ========================
+
+ Variable               Grid  Horizontal         Vertical
+ ---------              ----  ------------       ------------
+
+ temp                     1   Upstream3          Centered4
+                          2   Upstream3          Centered4
+
+ salt                     1   Upstream3          Centered4
+                          2   Upstream3          Centered4
+
+ Akima4     Fourth-order Akima advection
+ Centered2  Second-order centered differences advection
+ Centered4  Fourth-order centered differences advection
+ HSIMT      Third High-order Spatial Inteporlation at Middle Time Advection with TVD limiter
+ MPDATA     Multidimensional Positive Definite Advection Algorithm, recursive method
+ Splines    Conservative Parabolic Splines Reconstruction Advection (only vertical; not recommended)
+ Split_U3   Split third-order Upstream Advection
+ Upstream3  Third-order Upstream-biased Advection (only horizontal)
+
+
+ Lateral Boundary Conditions: NLM
+ ============================
+
+ Variable               Grid  West Edge    South Edge   East Edge    North Edge
+ ---------              ----  ----------   ----------   ----------   ----------
+
+ zeta                     1   Chapman Imp  Chapman Imp  Closed       Closed
+                          2   ting contac  t RHO-point   index in d  ata vector 
+
+ ubar                     1   Flather      Flather      Closed       Closed
+                          2   ting contac  t RHO-point   index in d  ata vector 
+
+ vbar                     1   Flather      Flather      Closed       Closed
+                          2   ting contac  t RHO-point   index in d  ata vector 
+
+ u                        1   Rad + Nud    Rad + Nud    Closed       Closed
+                          2   ting contac  t RHO-point   index in d  ata vector 
+
+ v                        1   Rad + Nud    Rad + Nud    Closed       Closed
+                          2   ting contac  t RHO-point   index in d  ata vector 
+
+ temp                     1   Rad + Nud    Rad + Nud    Closed       Closed
+                          2   ting contac  t RHO-point   index in d  ata vector 
+
+ salt                     1   Rad + Nud    Rad + Nud    Closed       Closed
+                          2   ting contac  t RHO-point   index in d  ata vector 
+
+ Activated C-preprocessing Options:
+
+ BOB_HIRES_NESTED         Bay of Bengal (ROMS/TOMS, 1/48 deg -- Nested)
+ ADD_FSOBC                Adding tidal elevation to processed OBC data
+ ADD_M2OBC                Adding tidal currents to processed OBC data
+ ANA_BSFLUX               Analytical kinematic bottom salinity flux
+ ANA_BTFLUX               Analytical kinematic bottom temperature flux
+ ANA_FSOBC                Analytical free-surface boundary conditions
+ ANA_M2OBC                Analytical 2D momentum boundary conditions
+ !ASSEMBLE_ALL...         Using mpi_isend/mpi_recv in mp_assemble routine
+ ASSUMED_SHAPE            Using assumed-shape arrays
+ AVERAGES                 Writing out time-averaged nonlinear model fields
+ !BOUNDARY_ALLGATHER      Using mpi_allreduce in mp_boundary routine
+ BULK_FLUXES              Surface bulk fluxes parameterization
+ !COLLECT_ALL...          Using mpi_isend/mpi_recv in mp_collect routine
+ CURVGRID                 Orthogonal curvilinear grid
+ DJ_GRADPS                Parabolic Splines density Jacobian (Shchepetkin, 2002)
+ DOUBLE_PRECISION         Double precision arithmetic numerical kernel.
+ EMINUSP                  Compute Salt Flux using E-P
+ LMD_BKPP                 KPP bottom boundary layer mixing
+ LMD_CONVEC               LMD convective mixing due to shear instability
+ LMD_DDMIX                LMD double-diffusive mixing
+ LMD_MIXING               Large/McWilliams/Doney interior mixing
+ LMD_NONLOCAL             LMD convective nonlocal transport
+ LMD_RIMIX                LMD diffusivity due to shear instability
+ LMD_SKPP                 KPP surface boundary layer mixing
+ MASKING                  Land/Sea masking
+ MIX_GEO_TS               Mixing of tracers along geopotential surfaces
+ MIX_GEO_UV               Mixing of momentum along geopotential surfaces
+ MPI                      MPI distributed-memory configuration
+ NESTING                  Nesting grids: Composite and Refinement
+ NONLINEAR                Nonlinear Model
+ NONLIN_EOS               Nonlinear Equation of State for seawater
+ !ONE_WAY                 Two-way nesting in refinement grids
+ POWER_LAW                Power-law shape time-averaging barotropic filter
+ PROFILE                  Time profiling activated
+ RAMP_TIDES               Ramping tidal forcing for one day
+ REDUCE_ALLREDUCE         Using mpi_allreduce in mp_reduce routine
+ !RST_SINGLE              Double precision fields in restart NetCDF file
+ SALINITY                 Using salinity
+ SOLAR_SOURCE             Solar Radiation Source Term
+ SOLVE3D                  Solving 3D Primitive Equations
+ SSH_TIDES                Add tidal elevation to SSH climatology
+ TS_DIF4                  Biharmonic mixing of tracers
+ UV_ADV                   Advection of momentum
+ UV_COR                   Coriolis term
+ UV_U3HADVECTION          Third-order upstream horizontal advection of 3D momentum
+ UV_C4VADVECTION          Fourth-order centered vertical advection of momentum
+ UV_QDRAG                 Quadratic bottom stress
+ UV_TIDES                 Add tidal currents to 2D momentum climatologies
+ UV_VIS2                  Harmonic mixing of momentum
+ VAR_RHO_2D               Variable density barotropic mode
+ VISC_GRID                Horizontal viscosity coefficient scaled by grid size
+
+ Process Information:
+
+ Node #    1 (pid= 3086569) is active.
+ Node #    2 (pid= 3086570) is active.
+ Node #    3 (pid= 3086572) is active.
+ Node #    0 (pid= 3086568) is active.
+ Processor            3  of            4 did sucesfully go into set_grid funtion with ng =           1
+ Processor            1  of            4 did sucesfully go into set_grid funtion with ng =           1
+ Processor            2  of            4 did sucesfully go into set_grid funtion with ng =           1
+ Processor            0  of            4 did sucesfully go into set_grid funtion with ng =           1
+
+ INITIAL: Configuring and initializing forward nonlinear model ...
+ *******
+
+    GET_GRID    - angle between XI-axis and EAST: angler
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  1.26821123E-05 Max =  7.10533503E-05)
+    GET_GRID    - bathymetry at RHO-points: h
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  5.00000000E+00 Max =  4.59658929E+03)
+    GET_GRID    - Coriolis parameter at RHO-points: f
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  1.01456678E-05 Max =  5.68426560E-05)
+    GET_GRID    - reciprocal XI-grid spacing: pm
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  4.32970224E-04 Max =  4.69235436E-04)
+    GET_GRID    - reciprocal ETA-grid spacing: pn
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  4.32975729E-04 Max =  4.69135481E-04)
+    GET_GRID    - XI-derivative of inverse metric factor pn: dndx
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  0.00000000E+00)
+    GET_GRID    - ETA-derivative of inverse metric factor pm: dmde
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min = -3.02672883E-01 Max =  0.00000000E+00)
+    GET_GRID    - x-location of RHO-points: x-rho
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  2.43896680E+06)
+    GET_GRID    - x-location of U-points: x_u
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  1.06556317E+03 Max =  2.43781198E+06)
+    GET_GRID    - x-location of V-points: x_v
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  2.43893578E+06)
+    GET_GRID    - x-location of PSI-points: x_psi
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  1.06563887E+03 Max =  2.43778099E+06)
+    GET_GRID    - y-location of RHO-points: y_rho
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  2.11214789E+06)
+    GET_GRID    - y-location of U-points: y_u
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  2.11214789E+06)
+    GET_GRID    - y-location of V-points: y_v
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  1.15479914E+03 Max =  2.11108210E+06)
+    GET_GRID    - y-location of PSI-points: y-psi
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  1.15479914E+03 Max =  2.11108210E+06)
+    GET_GRID    - longitude of RHO-points: lon_rho
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  7.70000000E+01 Max =  9.90000000E+01)
+    GET_GRID    - longitude of U-points: lon_u
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  7.70104167E+01 Max =  9.89895833E+01)
+    GET_GRID    - longitude of V-points: lon_v
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  7.70000000E+01 Max =  9.90000000E+01)
+    GET_GRID    - longitude of PSI-points: lon_psi
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  7.70104167E+01 Max =  9.89895833E+01)
+    GET_GRID    - latitude of RHO-points lat_rho
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  4.00000000E+00 Max =  2.30056136E+01)
+    GET_GRID    - latitude of U-points: lat_u
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  4.00000000E+00 Max =  2.30056136E+01)
+    GET_GRID    - latitude of V-points: lat_v
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  4.01039129E+00 Max =  2.29960241E+01)
+    GET_GRID    - latitude of PSI-points lat_psi
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  4.01039129E+00 Max =  2.29960241E+01)
+    GET_GRID    - mask on RHO-points: mask_rho
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on U-points: mask_u
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on V-points: mask_v
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on PSI-points: mask_psi
+                   (Grid = 01, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48_grd.nc)
+                   (Min =  0.00000000E+00 Max =  1.00000000E+00)
+
+ Vertical S-coordinate System, Grid 01:
+
+ level   S-coord     Cs-curve   Z   at hmin       at hc    half way     at hmax
+
+    40   0.0000000   0.0000000        0.000       0.000       0.000       0.000
+    39  -0.0250000  -0.0000309       -0.121      -1.877      -3.587      -3.769
+    38  -0.0500000  -0.0001247       -0.242      -3.759      -7.310      -7.818
+    37  -0.0750000  -0.0002842       -0.363      -5.646     -11.175     -12.160
+    36  -0.1000000  -0.0005144       -0.484      -7.539     -15.193     -16.816
+    35  -0.1250000  -0.0008222       -0.605      -9.437     -19.378     -21.817
+    34  -0.1500000  -0.0012170       -0.726     -11.341     -23.752     -27.206
+    33  -0.1750000  -0.0017111       -0.847     -13.253     -28.339     -33.037
+    32  -0.2000000  -0.0023196       -0.968     -15.174     -33.174     -39.377
+    31  -0.2250000  -0.0030610       -1.089     -17.105     -38.296     -46.309
+    30  -0.2500000  -0.0039582       -1.210     -19.047     -43.754     -53.934
+    29  -0.2750000  -0.0050385       -1.331     -21.003     -49.608     -62.374
+    28  -0.3000000  -0.0063350       -1.453     -22.975     -55.929     -71.777
+    27  -0.3250000  -0.0078873       -1.574     -24.967     -62.803     -82.318
+    26  -0.3500000  -0.0097429       -1.695     -26.981     -70.331     -94.210
+    25  -0.3750000  -0.0119584       -1.816     -29.022     -78.637    -107.703
+    24  -0.4000000  -0.0146013       -1.938     -31.095     -87.866    -123.099
+    23  -0.4250000  -0.0177522       -2.059     -33.206     -98.193    -140.756
+    22  -0.4500000  -0.0215067       -2.181     -35.363    -109.823    -161.100
+    21  -0.4750000  -0.0259789       -2.303     -37.573    -123.003    -184.639
+    20  -0.5000000  -0.0313040       -2.424     -39.848    -138.025    -211.974
+    19  -0.5250000  -0.0376427       -2.546     -42.198    -155.238    -243.822
+    18  -0.5500000  -0.0451859       -2.669     -44.639    -175.051    -281.030
+    17  -0.5750000  -0.0541596       -2.791     -47.187    -197.954    -324.607
+    16  -0.6000000  -0.0648314       -2.914     -49.862    -224.526    -375.742
+    15  -0.6250000  -0.0775180       -3.037     -52.689    -255.449    -435.846
+    14  -0.6500000  -0.0925932       -3.160     -55.694    -291.532    -506.582
+    13  -0.6750000  -0.1104976       -3.284     -58.912    -333.725    -589.912
+    12  -0.7000000  -0.1317496       -3.408     -62.381    -383.149    -688.143
+    11  -0.7250000  -0.1569575       -3.533     -66.147    -441.118    -803.983
+    10  -0.7500000  -0.1868327       -3.659     -70.262    -509.169    -940.599
+     9  -0.7750000  -0.2222045       -3.786     -74.790    -589.091   -1101.682
+     8  -0.8000000  -0.2640351       -3.914     -79.803    -682.965   -1291.515
+     7  -0.8250000  -0.3134348       -4.042     -85.383    -793.187   -1515.041
+     6  -0.8500000  -0.3716761       -4.173     -91.626    -922.508   -1777.924
+     5  -0.8750000  -0.4402058       -4.305     -98.640   -1074.051   -2086.603
+     4  -0.9000000  -0.5206513       -4.439    -106.549   -1251.331   -2448.324
+     3  -0.9250000  -0.6148197       -4.575    -115.486   -1458.253   -2871.130
+     2  -0.9500000  -0.7246838       -4.714    -125.601   -1699.077   -3363.803
+     1  -0.9750000  -0.8523498       -4.855    -137.051   -1978.353   -3935.718
+     0  -1.0000000  -1.0000000       -5.000    -150.000   -2300.795   -4596.589
+
+ Time Splitting Weights for Grid 01:    ndtfast = 120    nfast = 162
+ ==================================
+
+    Primary            Secondary            Accumulated to Current Step
+
+  1-0.0001172226421325 0.0083333333333333-0.0001172226421325 0.0083333333333333
+  2-0.0002292309049309 0.0083343101886844-0.0003464535470635 0.0166676435220178
+  3-0.0003360247898444 0.0083362204462255-0.0006824783369079 0.0250038639682433
+  4-0.0004376043025086 0.0083390206528076-0.0011200826394164 0.0333428846210509
+  5-0.0005339694575760 0.0083426673553285-0.0016540520969924 0.0416855519763793
+  6-0.0006251202854791 0.0083471171008083-0.0022791723824715 0.0500326690771876
+  7-0.0007110568411249 0.0083523264365206-0.0029902292235963 0.0583849955137082
+  8-0.0007917792145223 0.0083582519101966-0.0037820084381186 0.0667432474239048
+  9-0.0008672875433415 0.0083648500703177-0.0046492959814601 0.0751080974942225
+ 10-0.0009375820274056 0.0083720774665122-0.0055868780088657 0.0834801749607347
+ 11-0.0010026629451142 0.0083798906500739-0.0065895409539798 0.0918600656108086
+ 12-0.0010625306717997 0.0083882461746165-0.0076520716257795 0.1002483117854251
+ 13-0.0011171857000155 0.0083971005968815-0.0087692573257950 0.1086454123823066
+ 14-0.0011666286617562 0.0084064104777150-0.0099358859875511 0.1170518228600215
+ 15-0.0012108603526105 0.0084161323832296-0.0111467463401617 0.1254679552432511
+ 16-0.0012498817578462 0.0084262228861680-0.0123966280980078 0.1338941781294191
+ 17-0.0012836940804268 0.0084366385674834-0.0136803221784346 0.1423308166969025
+ 18-0.0013122987709613 0.0084473360181536-0.0149926209493959 0.1507781527150561
+ 19-0.0013356975595855 0.0084582718412450-0.0163283185089814 0.1592364245563011
+ 20-0.0013538924897757 0.0084694026542415-0.0176822109987571 0.1677058272105426
+ 21-0.0013668859540948 0.0084806850916563-0.0190490969528519 0.1761865123021989
+ 22-0.0013746807318701 0.0084920758079404-0.0204237776847220 0.1846785881101393
+ 23-0.0013772800288043 0.0085035314807060-0.0218010577135262 0.1931821195908454
+ 24-0.0013746875185173 0.0085150088142794-0.0231757452320435 0.2016971284051247
+ 25-0.0013669073860217 0.0085264645436004-0.0245426526180652 0.2102235929487251
+ 26-0.0013539443731293 0.0085378554384839-0.0258965969911945 0.2187614483872090
+ 27-0.0013358038257906 0.0085491383082600-0.0272324008169850 0.2273105866954689
+ 28-0.0013124917433661 0.0085602700068082-0.0285448925603512 0.2358708567022771
+ 29-0.0012840148298302 0.0085712074380029-0.0298289073901814 0.2444420641402801
+ 30-0.0012503805469065 0.0085819075615848-0.0310792879370879 0.2530239717018649
+ 31-0.0012115971691365 0.0085923273994757-0.0322908851062243 0.2616162991013407
+ 32-0.0011676738408795 0.0086024240425519-0.0334585589471039 0.2702187231438925
+ 33-0.0011186206352453 0.0086121546578925-0.0345771795823492 0.2788308778017851
+ 34-0.0010644486149587 0.0086214764965196-0.0356416281973079 0.2874523542983046
+ 35-0.0010051698951567 0.0086303469016442-0.0366467980924645 0.2960827011999488
+ 36-0.0009407977081173 0.0086387233174372-0.0375875958005818 0.3047214245173860
+ 37-0.0008713464699211 0.0086465632983382-0.0384589422705029 0.3133679878157242
+ 38-0.0007968318490450 0.0086538245189209-0.0392557741195479 0.3220218123346451
+ 39-0.0007172708368875 0.0086604647843296-0.0399730449564353 0.3306822771189747
+ 40-0.0006326818202270 0.0086664420413036-0.0406057267766623 0.3393487191602783
+ 41-0.0005430846556122 0.0086717143898055-0.0411488114322746 0.3480204335500838
+ 42-0.0004485007456841 0.0086762400952690-0.0415973121779586 0.3566966736453528
+ 43-0.0003489531174307 0.0086799776014830-0.0419462652953894 0.3653766512468358
+ 44-0.0002444665023743 0.0086828855441282-0.0421907317977637 0.3740595367909640
+ 45-0.0001350674186898 0.0086849227649814-0.0423257992164535 0.3827444595559454
+ 46-0.0000207842552568 0.0086860483268038-0.0423465834717103 0.3914305078827492
+ 47 0.0000983526423577 0.0086862215289309-0.0422482308293526 0.4001167294116801
+ 48 0.0002223108839831 0.0086854019235779-0.0420259199453695 0.4088021313352581
+ 49 0.0003510559449973 0.0086835493328781-0.0416748640003722 0.4174856806681361
+ 50 0.0004845510745471 0.0086806238666698-0.0411903129258251 0.4261663045348059
+ 51 0.0006227572018350 0.0086765859410485-0.0405675557239901 0.4348428904758544
+ 52 0.0007656328404754 0.0086713962976999-0.0398019228835147 0.4435142867735544
+ 53 0.0009131339909177 0.0086650160240293-0.0388887888925970 0.4521793027975837
+ 54 0.0010652140409370 0.0086574065741050-0.0378235748516600 0.4608367093716886
+ 55 0.0012218236641931 0.0086485297904305-0.0366017511874669 0.4694852391621192
+ 56 0.0013829107168573 0.0086383479265622-0.0352188404706096 0.4781235870886814
+ 57 0.0015484201323064 0.0086268236705884-0.0336704203383032 0.4867504107592698
+ 58 0.0017182938138853 0.0086139201694859-0.0319521265244179 0.4953643309287556
+ 59 0.0018924705257367 0.0085996010543702-0.0300596559986812 0.5039639319831258
+ 60 0.0020708857816986 0.0085838304666557-0.0279887702169826 0.5125477624497815
+ 61 0.0022534717322706 0.0085665730851415-0.0257352984847120 0.5211143355349230
+ 62 0.0024401570496464 0.0085477941540393-0.0232951414350656 0.5296621296889623
+ 63 0.0026308668108154 0.0085274595119589-0.0206642746242503 0.5381895892009212
+ 64 0.0028255223787314 0.0085055356218688-0.0178387522455188 0.5466951248227899
+ 65 0.0030240412815495 0.0084819896020460-0.0148147109639693 0.5551771144248360
+ 66 0.0032263370899303 0.0084567892580331-0.0115883738740391 0.5636339036828690
+ 67 0.0034323192924121 0.0084299031156170-0.0081560545816269 0.5720638067984860
+ 68 0.0036418931688515 0.0084013004548469-0.0045141614127754 0.5804651072533329
+ 69 0.0038549596619306 0.0083709513451065-0.0006592017508449 0.5888360585984393
+ 70 0.0040714152467328 0.0083388266812570 0.0034122134958879 0.5971748852796964
+ 71 0.0042911517983864 0.0083048982208676 0.0077033652942743 0.6054797835005640
+ 72 0.0045140564577757 0.0082691386225477 0.0122174217520500 0.6137489221231117
+ 73 0.0047400114953199 0.0082315214853996 0.0169574332473700 0.6219804436085113
+ 74 0.0049688941728199 0.0081920213896053 0.0219263274201899 0.6301724649981166
+ 75 0.0052005766033728 0.0081506139381651 0.0271269040235627 0.6383230789362817
+ 76 0.0054349256093544 0.0081072757998036 0.0325618296329170 0.6464303547360853
+ 77 0.0056718025784691 0.0080619847530590 0.0382336322113862 0.6544923394891444
+ 78 0.0059110633178682 0.0080147197315718 0.0441446955292544 0.6625070592207162
+ 79 0.0061525579063351 0.0079654608705895 0.0502972534355895 0.6704725200913058
+ 80 0.0063961305445390 0.0079141895547034 0.0566933839801285 0.6783867096460092
+ 81 0.0066416194033565 0.0078608884668323 0.0633350033834850 0.6862475981128415
+ 82 0.0068888564702600 0.0078055416384710 0.0702238598537450 0.6940531397513124
+ 83 0.0071376673937753 0.0077481345012188 0.0773615272475203 0.7018012742525312
+ 84 0.0073878713260055 0.0076886539396040 0.0847493985735257 0.7094899281921353
+ 85 0.0076392807632239 0.0076270883452206 0.0923886793367497 0.7171170165373559
+ 86 0.0078917013845342 0.0075634276721938 0.1002803807212839 0.7246804442095497
+ 87 0.0081449318885984 0.0074976634939893 0.1084253126098823 0.7321781077035390
+ 88 0.0083987638284322 0.0074297890615843 0.1168240764383144 0.7396078967651233
+ 89 0.0086529814442693 0.0073597993630140 0.1254770578825838 0.7469676961281373
+ 90 0.0089073614944923 0.0072876911843118 0.1343844193770761 0.7542553873124491
+ 91 0.0091616730846320 0.0072134631718577 0.1435460924617080 0.7614688504843068
+ 92 0.0094156774944340 0.0071371158961524 0.1529617699561420 0.7686059663804592
+ 93 0.0096691280029939 0.0070586519170322 0.1626308979591359 0.7756646182974913
+ 94 0.0099217697119596 0.0069780758503405 0.1725526676710956 0.7826426941478318
+ 95 0.0101733393668016 0.0068953944360742 0.1827260070378972 0.7895380885839061
+ 96 0.0104235651761509 0.0068106166080175 0.1931495722140480 0.7963487051919236
+ 97 0.0106721666292051 0.0067237535648829 0.2038217388432531 0.8030724587568066
+ 98 0.0109188543112019 0.0066348188429729 0.2147405931544550 0.8097072775997795
+ 99 0.0111633297169610 0.0065438283903795 0.2259039228714160 0.8162511059901590
+100 0.0114052850624924 0.0064508006427382 0.2373092079339084 0.8227019066328972
+101 0.0116444030946744 0.0063557566005508 0.2489536110285828 0.8290576632334480
+102 0.0118803568989975 0.0062587199080951 0.2608339679275803 0.8353163831415431
+103 0.0121128097053780 0.0061597169339368 0.2729467776329583 0.8414761000754799
+104 0.0123414146920374 0.0060587768530587 0.2852881923249957 0.8475348769285386
+105 0.0125658147874511 0.0059559317306250 0.2978540071124468 0.8534908086591636
+106 0.0127856424703642 0.0058512166073963 0.3106396495828110 0.8593420252665599
+107 0.0130005195678754 0.0057446695868099 0.3236401691506864 0.8650866948533698
+108 0.0132100570515883 0.0056363319237443 0.3368502262022747 0.8707230267771140
+109 0.0134138548318307 0.0055262481149810 0.3502640810341054 0.8762492748920950
+110 0.0136115015499419 0.0054144659913825 0.3638755825840473 0.8816637408834775
+111 0.0138025743686275 0.0053010368117996 0.3776781569526748 0.8869647776952772
+112 0.0139866387603819 0.0051860153587277 0.3916647957130567 0.8921507930540049
+113 0.0141632482939791 0.0050694600357245 0.4058280440070359 0.8972202530897294
+114 0.0143319444190305 0.0049514329666080 0.4201599884260664 0.9021716860563375
+115 0.0144922562486115 0.0048320000964494 0.4346522446746779 0.9070036861527869
+116 0.0146437003399546 0.0047112312943777 0.4492959450146325 0.9117149174471646
+117 0.0147857804732117 0.0045892004582114 0.4640817254878442 0.9163041179053760
+118 0.0149179874282830 0.0044659856209346 0.4789997129161273 0.9207701035263106
+119 0.0150397987597146 0.0043416690590323 0.4940395116758418 0.9251117725853429
+120 0.0151506785696629 0.0042163374027013 0.5091901902455047 0.9293281099880443
+121 0.0152500772789280 0.0040900817479541 0.5244402675244327 0.9334181917359984
+122 0.0153374313960538 0.0039629977706297 0.5397776989204865 0.9373811895066281
+123 0.0154121632844963 0.0038351858423293 0.5551898622049828 0.9412163753489574
+124 0.0154736809278600 0.0037067511482918 0.5706635431328428 0.9449231264972492
+125 0.0155213776932018 0.0035778038072263 0.5861849208260447 0.9485009303044755
+126 0.0155546320924023 0.0034484589931163 0.6017395529184469 0.9519493892975918
+127 0.0155728075416057 0.0033188370590129 0.6173123604600526 0.9552682263566047
+128 0.0155752521187267 0.0031890636628329 0.6328876125787792 0.9584572900194376
+129 0.0155612983190259 0.0030592698951768 0.6484489108978051 0.9615165599146144
+130 0.0155302628087524 0.0029295924091850 0.6639791737065575 0.9644461523237994
+131 0.0154814461768545 0.0028001735524454 0.6794606198834120 0.9672463258762447
+132 0.0154141326847582 0.0026711615009716 0.6948747525681701 0.9699174873772163
+133 0.0153275900142129 0.0025427103952652 0.7102023425823830 0.9724601977724815
+134 0.0152210690132063 0.0024149804784801 0.7254234115955893 0.9748751782509616
+135 0.0150938034399454 0.0022881382367034 0.7405172150355347 0.9771633164876650
+136 0.0149450097049061 0.0021623565413705 0.7554622247404408 0.9793256730290355
+137 0.0147738866109511 0.0020378147938297 0.7702361113513919 0.9813634878228652
+138 0.0145796150915145 0.0019146990720717 0.7848157264429064 0.9832781868949370
+139 0.0143613579468548 0.0017932022796424 0.7991770843897612 0.9850713891745794
+140 0.0141182595783759 0.0016735242967520 0.8132953439681371 0.9867449134713313
+141 0.0138494457210152 0.0015558721335989 0.8271447896891523 0.9883007856049302
+142 0.0135540231737002 0.0014404600859237 0.8406988128628525 0.9897412456908539
+143 0.0132310795278724 0.0013275098928096 0.8539298923907249 0.9910687555836635
+144 0.0128796828940790 0.0012172508967440 0.8668095752848040 0.9922860064804074
+145 0.0124988816266331 0.0011099202059600 0.8793084569114370 0.9933959266863674
+146 0.0120877040463403 0.0010057628590714 0.8913961609577773 0.9944016895454388
+147 0.0116451581612946 0.0009050319920185 0.9030413191190719 0.9953067215374574
+148 0.0111702313857412 0.0008079890073411 0.9142115505048132 0.9961147105447984
+149 0.0106618902570072 0.0007149037457932 0.9248734407618203 0.9968296142905916
+150 0.0101190801505000 0.0006260546603182 0.9349925209123203 0.9974556689509098
+151 0.0095407249927742 0.0005417289923973 0.9445332459050946 0.9979973979433071
+152 0.0089257269726653 0.0004622229507909 0.9534589728777599 0.9984596208940980
+153 0.0082729662504917 0.0003878418926853 0.9617319391282516 0.9988474627867834
+154 0.0075813006653245 0.0003189005072646 0.9693132397935761 0.9991663632940480
+155 0.0068495654403250 0.0002557230017202 0.9761628052339011 0.9994220862957681
+156 0.0060765728861500 0.0001986432897175 0.9822393781200511 0.9996207295854856
+157 0.0052611121024249 0.0001480051823329 0.9875004902224760 0.9997687347678186
+158 0.0044019486772844 0.0001041625814794 0.9919024388997604 0.9998728973492980
+159 0.0034978243849815 0.0000674796758353 0.9954002632847418 0.9999403770251333
+160 0.0025474568815635 0.0000383311392938 0.9979477201663053 0.9999787081644271
+161 0.0015495393986166 0.0000171023319475 0.9994972595649219 0.9999958104963745
+162 0.0005027404350778 0.0000041895036256 0.9999999999999997 1.0000000000000002
+
+ ndtfast, nfast =  120 162   nfast/ndtfast =  1.35000
+
+ Centers of gravity and integrals (values must be 1, 1, approx 1/2, 1, 1):
+
+    1.000000000000 1.016453155986 0.508226577993 1.000000000000 1.000000000000
+
+ Power filter parameters, Fgamma, gamma =  0.28400   0.26033
+
+ Metrics information for Grid 01:
+ ===============================
+
+ Minimum X-grid spacing, DXmin =  2.13112635E+00 km    Water points =  2.13534725E+00 km
+ Maximum X-grid spacing, DXmax =  2.30962765E+00 km    Water points =  2.30962765E+00 km
+ Minimum Y-grid spacing, DYmin =  2.13158041E+00 km    Water points =  2.13549726E+00 km
+ Maximum Y-grid spacing, DYmax =  2.30959828E+00 km    Water points =  2.30959828E+00 km
+ Minimum Z-grid spacing, DZmin =  1.20972733E-01 m     Water points =  1.20972733E-01 m
+ Maximum Z-grid spacing, DZmax =  6.60871148E+02 m     Water points =  6.60871148E+02 m
+
+ Minimum barotropic Courant Number =  1.07226746E-03
+ Maximum barotropic Courant Number =  3.25067592E-02
+ Maximum Coriolis   Courant Number =  1.68642195E-03
+
+ Horizontal mixing scaled by grid area squared root, MAXVAL(grdscl) =  2.30961296E+00 km  (Water points)
+ Processor            2  of            4 did sucesfully complete set_grid funtion for ng =            1
+ Processor            2  of            4 did sucesfully go into set_grid funtion with ng =           2
+ Processor            3  of            4 did sucesfully complete set_grid funtion for ng =            1
+ Processor            3  of            4 did sucesfully go into set_grid funtion with ng =           2
+ Processor            1  of            4 did sucesfully complete set_grid funtion for ng =            1
+ Processor            1  of            4 did sucesfully go into set_grid funtion with ng =           2
+ Processor            0  of            4 did sucesfully complete set_grid funtion for ng =            1
+ Processor            0  of            4 did sucesfully go into set_grid funtion with ng =           2
+
+    GET_GRID    - angle between XI-axis and EAST: angler
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  0.00000000E+00 Max =  0.00000000E+00)
+    GET_GRID    - bathymetry at RHO-points: h
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  3.11996345E+03 Max =  3.87123706E+03)
+    GET_GRID    - Coriolis parameter at RHO-points: f
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  2.05653874E-05 Max =  3.08247096E-05)
+    GET_GRID    - reciprocal XI-grid spacing: pm
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  1.30810165E-03 Max =  1.32505948E-03)
+    GET_GRID    - reciprocal ETA-grid spacing: pn
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  1.30809046E-03 Max =  1.32497446E-03)
+    GET_GRID    - XI-derivative of inverse metric factor pn: dndx
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  0.00000000E+00 Max =  0.00000000E+00)
+    GET_GRID    - ETA-derivative of inverse metric factor pm: dmde
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min = -1.93763943E-02 Max = -1.31124113E-02)
+    GET_GRID    - x-location of RHO-points: x-rho
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  6.77293544E+05 Max =  1.37443954E+06)
+    GET_GRID    - x-location of U-points: x_u
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  6.77670656E+05 Max =  1.37405754E+06)
+    GET_GRID    - x-location of V-points: x_v
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  6.77302232E+05 Max =  1.37442774E+06)
+    GET_GRID    - x-location of PSI-points: x_psi
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  6.77679349E+05 Max =  1.37404574E+06)
+    GET_GRID    - y-location of RHO-points: y_rho
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  4.58834542E+05 Max =  9.15265357E+05)
+    GET_GRID    - y-location of U-points: y_u
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  4.58834542E+05 Max =  9.15265357E+05)
+    GET_GRID    - y-location of V-points: y_v
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  4.59216536E+05 Max =  9.14888206E+05)
+    GET_GRID    - y-location of PSI-points: y-psi
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  4.59216536E+05 Max =  9.14888206E+05)
+    GET_GRID    - longitude of RHO-points: lon_rho
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  8.32361111E+01 Max =  8.94930556E+01)
+    GET_GRID    - longitude of U-points: lon_u
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  8.32395833E+01 Max =  8.94895833E+01)
+    GET_GRID    - longitude of V-points: lon_v
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  8.32361111E+01 Max =  8.94930556E+01)
+    GET_GRID    - longitude of PSI-points: lon_psi
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  8.32395833E+01 Max =  8.94895833E+01)
+    GET_GRID    - latitude of RHO-points lat_rho
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  8.12870382E+00 Max =  1.22357781E+01)
+    GET_GRID    - latitude of U-points: lat_u
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  8.12870382E+00 Max =  1.22357781E+01)
+    GET_GRID    - latitude of V-points: lat_v
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  8.13214110E+00 Max =  1.22323844E+01)
+    GET_GRID    - latitude of PSI-points lat_psi
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  8.13214110E+00 Max =  1.22323844E+01)
+    GET_GRID    - mask on RHO-points: mask_rho
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  1.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on U-points: mask_u
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  1.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on V-points: mask_v
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  1.00000000E+00 Max =  1.00000000E+00)
+    GET_GRID    - mask on PSI-points: mask_psi
+                   (Grid = 02, File: /scratch/chaitanyavp/BOB/nested_Bob_Exp/input/BoB1by48by3_grd.nc)
+                   (Min =  1.00000000E+00 Max =  1.00000000E+00)
+
+ Vertical S-coordinate System, Grid 02:
+
+ level   S-coord     Cs-curve   Z   at hmin       at hc    half way     at hmax
+
+    40   0.0000000   0.0000000        0.000       0.000       0.000       0.000
+    39  -0.0250000  -0.0000309       -3.670      -1.877      -3.699      -3.725
+    38  -0.0500000  -0.0001247       -7.527      -3.759      -7.610      -7.685
+    37  -0.0750000  -0.0002842      -11.580      -5.646     -11.740     -11.890
+    36  -0.1000000  -0.0005144      -15.843      -7.539     -16.107     -16.357
+    35  -0.1250000  -0.0008222      -20.337      -9.437     -20.734     -21.115
+    34  -0.1500000  -0.0012170      -25.091     -11.341     -25.653     -26.196
+    33  -0.1750000  -0.0017111      -30.140     -13.253     -30.905     -31.648
+    32  -0.2000000  -0.0023196      -35.529     -15.174     -36.540     -37.526
+    31  -0.2250000  -0.0030610      -41.314     -17.105     -42.621     -43.899
+    30  -0.2500000  -0.0039582      -47.563     -19.047     -49.224     -50.853
+    29  -0.2750000  -0.0050385      -54.356     -21.003     -56.441     -58.489
+    28  -0.3000000  -0.0063350      -61.794     -22.975     -64.382     -66.931
+    27  -0.3250000  -0.0078873      -69.993     -24.967     -73.181     -76.326
+    26  -0.3500000  -0.0097429      -79.095     -26.981     -82.996     -86.852
+    25  -0.3750000  -0.0119584      -89.268     -29.022     -94.017     -98.719
+    24  -0.4000000  -0.0146013     -100.714     -31.095    -106.472    -112.179
+    23  -0.4250000  -0.0177522     -113.671     -33.206    -120.628    -127.531
+    22  -0.4500000  -0.0215067     -128.426     -35.363    -136.808    -145.134
+    21  -0.4750000  -0.0259789     -145.317     -37.573    -155.394    -165.411
+    20  -0.5000000  -0.0313040     -164.747     -39.848    -176.838    -188.867
+    19  -0.5250000  -0.0376427     -187.194     -42.198    -201.680    -216.101
+    18  -0.5500000  -0.0451859     -213.227     -44.639    -230.558    -247.823
+    17  -0.5750000  -0.0541596     -243.518     -47.187    -264.232    -284.876
+    16  -0.6000000  -0.0648314     -278.865     -49.862    -303.597    -328.259
+    15  -0.6250000  -0.0775180     -320.209     -52.689    -349.715    -379.150
+    14  -0.6500000  -0.0925932     -368.663     -55.694    -403.840    -438.942
+    13  -0.6750000  -0.1104976     -425.540     -58.912    -467.447    -509.279
+    12  -0.7000000  -0.1317496     -492.382     -62.381    -542.274    -592.092
+    11  -0.7250000  -0.1569575     -570.999     -66.147    -630.361    -689.648
+    10  -0.7500000  -0.1868327     -663.511     -70.262    -734.092    -804.598
+     9  -0.7750000  -0.2222045     -772.386     -74.790    -856.246    -940.033
+     8  -0.8000000  -0.2640351     -900.487     -79.803   -1000.048   -1099.538
+     7  -0.8250000  -0.3134348    -1051.120     -85.383   -1169.220   -1287.253
+     6  -0.8500000  -0.3716761    -1228.073     -91.626   -1368.028   -1507.919
+     5  -0.8750000  -0.4402058    -1435.653     -98.640   -1601.319   -1766.927
+     4  -0.9000000  -0.5206513    -1678.705    -106.549   -1874.550   -2070.344
+     3  -0.9250000  -0.6148197    -1962.608    -115.486   -2193.777   -2424.904
+     2  -0.9500000  -0.7246838    -2293.234    -125.601   -2565.612   -2837.959
+     1  -0.9750000  -0.8523498    -2676.854    -137.051   -2997.115   -3317.359
+     0  -1.0000000  -1.0000000    -3119.963    -150.000   -3495.600   -3871.237
+
+ Time Splitting Weights for Grid 02:    ndtfast = 120    nfast = 162
+ ==================================
+
+    Primary            Secondary            Accumulated to Current Step
+
+  1-0.0001172226421325 0.0083333333333333-0.0001172226421325 0.0083333333333333
+  2-0.0002292309049309 0.0083343101886844-0.0003464535470635 0.0166676435220178
+  3-0.0003360247898444 0.0083362204462255-0.0006824783369079 0.0250038639682433
+  4-0.0004376043025086 0.0083390206528076-0.0011200826394164 0.0333428846210509
+  5-0.0005339694575760 0.0083426673553285-0.0016540520969924 0.0416855519763793
+  6-0.0006251202854791 0.0083471171008083-0.0022791723824715 0.0500326690771876
+  7-0.0007110568411249 0.0083523264365206-0.0029902292235963 0.0583849955137082
+  8-0.0007917792145223 0.0083582519101966-0.0037820084381186 0.0667432474239048
+  9-0.0008672875433415 0.0083648500703177-0.0046492959814601 0.0751080974942225
+ 10-0.0009375820274056 0.0083720774665122-0.0055868780088657 0.0834801749607347
+ 11-0.0010026629451142 0.0083798906500739-0.0065895409539798 0.0918600656108086
+ 12-0.0010625306717997 0.0083882461746165-0.0076520716257795 0.1002483117854251
+ 13-0.0011171857000155 0.0083971005968815-0.0087692573257950 0.1086454123823066
+ 14-0.0011666286617562 0.0084064104777150-0.0099358859875511 0.1170518228600215
+ 15-0.0012108603526105 0.0084161323832296-0.0111467463401617 0.1254679552432511
+ 16-0.0012498817578462 0.0084262228861680-0.0123966280980078 0.1338941781294191
+ 17-0.0012836940804268 0.0084366385674834-0.0136803221784346 0.1423308166969025
+ 18-0.0013122987709613 0.0084473360181536-0.0149926209493959 0.1507781527150561
+ 19-0.0013356975595855 0.0084582718412450-0.0163283185089814 0.1592364245563011
+ 20-0.0013538924897757 0.0084694026542415-0.0176822109987571 0.1677058272105426
+ 21-0.0013668859540948 0.0084806850916563-0.0190490969528519 0.1761865123021989
+ 22-0.0013746807318701 0.0084920758079404-0.0204237776847220 0.1846785881101393
+ 23-0.0013772800288043 0.0085035314807060-0.0218010577135262 0.1931821195908454
+ 24-0.0013746875185173 0.0085150088142794-0.0231757452320435 0.2016971284051247
+ 25-0.0013669073860217 0.0085264645436004-0.0245426526180652 0.2102235929487251
+ 26-0.0013539443731293 0.0085378554384839-0.0258965969911945 0.2187614483872090
+ 27-0.0013358038257906 0.0085491383082600-0.0272324008169850 0.2273105866954689
+ 28-0.0013124917433661 0.0085602700068082-0.0285448925603512 0.2358708567022771
+ 29-0.0012840148298302 0.0085712074380029-0.0298289073901814 0.2444420641402801
+ 30-0.0012503805469065 0.0085819075615848-0.0310792879370879 0.2530239717018649
+ 31-0.0012115971691365 0.0085923273994757-0.0322908851062243 0.2616162991013407
+ 32-0.0011676738408795 0.0086024240425519-0.0334585589471039 0.2702187231438925
+ 33-0.0011186206352453 0.0086121546578925-0.0345771795823492 0.2788308778017851
+ 34-0.0010644486149587 0.0086214764965196-0.0356416281973079 0.2874523542983046
+ 35-0.0010051698951567 0.0086303469016442-0.0366467980924645 0.2960827011999488
+ 36-0.0009407977081173 0.0086387233174372-0.0375875958005818 0.3047214245173860
+ 37-0.0008713464699211 0.0086465632983382-0.0384589422705029 0.3133679878157242
+ 38-0.0007968318490450 0.0086538245189209-0.0392557741195479 0.3220218123346451
+ 39-0.0007172708368875 0.0086604647843296-0.0399730449564353 0.3306822771189747
+ 40-0.0006326818202270 0.0086664420413036-0.0406057267766623 0.3393487191602783
+ 41-0.0005430846556122 0.0086717143898055-0.0411488114322746 0.3480204335500838
+ 42-0.0004485007456841 0.0086762400952690-0.0415973121779586 0.3566966736453528
+ 43-0.0003489531174307 0.0086799776014830-0.0419462652953894 0.3653766512468358
+ 44-0.0002444665023743 0.0086828855441282-0.0421907317977637 0.3740595367909640
+ 45-0.0001350674186898 0.0086849227649814-0.0423257992164535 0.3827444595559454
+ 46-0.0000207842552568 0.0086860483268038-0.0423465834717103 0.3914305078827492
+ 47 0.0000983526423577 0.0086862215289309-0.0422482308293526 0.4001167294116801
+ 48 0.0002223108839831 0.0086854019235779-0.0420259199453695 0.4088021313352581
+ 49 0.0003510559449973 0.0086835493328781-0.0416748640003722 0.4174856806681361
+ 50 0.0004845510745471 0.0086806238666698-0.0411903129258251 0.4261663045348059
+ 51 0.0006227572018350 0.0086765859410485-0.0405675557239901 0.4348428904758544
+ 52 0.0007656328404754 0.0086713962976999-0.0398019228835147 0.4435142867735544
+ 53 0.0009131339909177 0.0086650160240293-0.0388887888925970 0.4521793027975837
+ 54 0.0010652140409370 0.0086574065741050-0.0378235748516600 0.4608367093716886
+ 55 0.0012218236641931 0.0086485297904305-0.0366017511874669 0.4694852391621192
+ 56 0.0013829107168573 0.0086383479265622-0.0352188404706096 0.4781235870886814
+ 57 0.0015484201323064 0.0086268236705884-0.0336704203383032 0.4867504107592698
+ 58 0.0017182938138853 0.0086139201694859-0.0319521265244179 0.4953643309287556
+ 59 0.0018924705257367 0.0085996010543702-0.0300596559986812 0.5039639319831258
+ 60 0.0020708857816986 0.0085838304666557-0.0279887702169826 0.5125477624497815
+ 61 0.0022534717322706 0.0085665730851415-0.0257352984847120 0.5211143355349230
+ 62 0.0024401570496464 0.0085477941540393-0.0232951414350656 0.5296621296889623
+ 63 0.0026308668108154 0.0085274595119589-0.0206642746242503 0.5381895892009212
+ 64 0.0028255223787314 0.0085055356218688-0.0178387522455188 0.5466951248227899
+ 65 0.0030240412815495 0.0084819896020460-0.0148147109639693 0.5551771144248360
+ 66 0.0032263370899303 0.0084567892580331-0.0115883738740391 0.5636339036828690
+ 67 0.0034323192924121 0.0084299031156170-0.0081560545816269 0.5720638067984860
+ 68 0.0036418931688515 0.0084013004548469-0.0045141614127754 0.5804651072533329
+ 69 0.0038549596619306 0.0083709513451065-0.0006592017508449 0.5888360585984393
+ 70 0.0040714152467328 0.0083388266812570 0.0034122134958879 0.5971748852796964
+ 71 0.0042911517983864 0.0083048982208676 0.0077033652942743 0.6054797835005640
+ 72 0.0045140564577757 0.0082691386225477 0.0122174217520500 0.6137489221231117
+ 73 0.0047400114953199 0.0082315214853996 0.0169574332473700 0.6219804436085113
+ 74 0.0049688941728199 0.0081920213896053 0.0219263274201899 0.6301724649981166
+ 75 0.0052005766033728 0.0081506139381651 0.0271269040235627 0.6383230789362817
+ 76 0.0054349256093544 0.0081072757998036 0.0325618296329170 0.6464303547360853
+ 77 0.0056718025784691 0.0080619847530590 0.0382336322113862 0.6544923394891444
+ 78 0.0059110633178682 0.0080147197315718 0.0441446955292544 0.6625070592207162
+ 79 0.0061525579063351 0.0079654608705895 0.0502972534355895 0.6704725200913058
+ 80 0.0063961305445390 0.0079141895547034 0.0566933839801285 0.6783867096460092
+ 81 0.0066416194033565 0.0078608884668323 0.0633350033834850 0.6862475981128415
+ 82 0.0068888564702600 0.0078055416384710 0.0702238598537450 0.6940531397513124
+ 83 0.0071376673937753 0.0077481345012188 0.0773615272475203 0.7018012742525312
+ 84 0.0073878713260055 0.0076886539396040 0.0847493985735257 0.7094899281921353
+ 85 0.0076392807632239 0.0076270883452206 0.0923886793367497 0.7171170165373559
+ 86 0.0078917013845342 0.0075634276721938 0.1002803807212839 0.7246804442095497
+ 87 0.0081449318885984 0.0074976634939893 0.1084253126098823 0.7321781077035390
+ 88 0.0083987638284322 0.0074297890615843 0.1168240764383144 0.7396078967651233
+ 89 0.0086529814442693 0.0073597993630140 0.1254770578825838 0.7469676961281373
+ 90 0.0089073614944923 0.0072876911843118 0.1343844193770761 0.7542553873124491
+ 91 0.0091616730846320 0.0072134631718577 0.1435460924617080 0.7614688504843068
+ 92 0.0094156774944340 0.0071371158961524 0.1529617699561420 0.7686059663804592
+ 93 0.0096691280029939 0.0070586519170322 0.1626308979591359 0.7756646182974913
+ 94 0.0099217697119596 0.0069780758503405 0.1725526676710956 0.7826426941478318
+ 95 0.0101733393668016 0.0068953944360742 0.1827260070378972 0.7895380885839061
+ 96 0.0104235651761509 0.0068106166080175 0.1931495722140480 0.7963487051919236
+ 97 0.0106721666292051 0.0067237535648829 0.2038217388432531 0.8030724587568066
+ 98 0.0109188543112019 0.0066348188429729 0.2147405931544550 0.8097072775997795
+ 99 0.0111633297169610 0.0065438283903795 0.2259039228714160 0.8162511059901590
+100 0.0114052850624924 0.0064508006427382 0.2373092079339084 0.8227019066328972
+101 0.0116444030946744 0.0063557566005508 0.2489536110285828 0.8290576632334480
+102 0.0118803568989975 0.0062587199080951 0.2608339679275803 0.8353163831415431
+103 0.0121128097053780 0.0061597169339368 0.2729467776329583 0.8414761000754799
+104 0.0123414146920374 0.0060587768530587 0.2852881923249957 0.8475348769285386
+105 0.0125658147874511 0.0059559317306250 0.2978540071124468 0.8534908086591636
+106 0.0127856424703642 0.0058512166073963 0.3106396495828110 0.8593420252665599
+107 0.0130005195678754 0.0057446695868099 0.3236401691506864 0.8650866948533698
+108 0.0132100570515883 0.0056363319237443 0.3368502262022747 0.8707230267771140
+109 0.0134138548318307 0.0055262481149810 0.3502640810341054 0.8762492748920950
+110 0.0136115015499419 0.0054144659913825 0.3638755825840473 0.8816637408834775
+111 0.0138025743686275 0.0053010368117996 0.3776781569526748 0.8869647776952772
+112 0.0139866387603819 0.0051860153587277 0.3916647957130567 0.8921507930540049
+113 0.0141632482939791 0.0050694600357245 0.4058280440070359 0.8972202530897294
+114 0.0143319444190305 0.0049514329666080 0.4201599884260664 0.9021716860563375
+115 0.0144922562486115 0.0048320000964494 0.4346522446746779 0.9070036861527869
+116 0.0146437003399546 0.0047112312943777 0.4492959450146325 0.9117149174471646
+117 0.0147857804732117 0.0045892004582114 0.4640817254878442 0.9163041179053760
+118 0.0149179874282830 0.0044659856209346 0.4789997129161273 0.9207701035263106
+119 0.0150397987597146 0.0043416690590323 0.4940395116758418 0.9251117725853429
+120 0.0151506785696629 0.0042163374027013 0.5091901902455047 0.9293281099880443
+121 0.0152500772789280 0.0040900817479541 0.5244402675244327 0.9334181917359984
+122 0.0153374313960538 0.0039629977706297 0.5397776989204865 0.9373811895066281
+123 0.0154121632844963 0.0038351858423293 0.5551898622049828 0.9412163753489574
+124 0.0154736809278600 0.0037067511482918 0.5706635431328428 0.9449231264972492
+125 0.0155213776932018 0.0035778038072263 0.5861849208260447 0.9485009303044755
+126 0.0155546320924023 0.0034484589931163 0.6017395529184469 0.9519493892975918
+127 0.0155728075416057 0.0033188370590129 0.6173123604600526 0.9552682263566047
+128 0.0155752521187267 0.0031890636628329 0.6328876125787792 0.9584572900194376
+129 0.0155612983190259 0.0030592698951768 0.6484489108978051 0.9615165599146144
+130 0.0155302628087524 0.0029295924091850 0.6639791737065575 0.9644461523237994
+131 0.0154814461768545 0.0028001735524454 0.6794606198834120 0.9672463258762447
+132 0.0154141326847582 0.0026711615009716 0.6948747525681701 0.9699174873772163
+133 0.0153275900142129 0.0025427103952652 0.7102023425823830 0.9724601977724815
+134 0.0152210690132063 0.0024149804784801 0.7254234115955893 0.9748751782509616
+135 0.0150938034399454 0.0022881382367034 0.7405172150355347 0.9771633164876650
+136 0.0149450097049061 0.0021623565413705 0.7554622247404408 0.9793256730290355
+137 0.0147738866109511 0.0020378147938297 0.7702361113513919 0.9813634878228652
+138 0.0145796150915145 0.0019146990720717 0.7848157264429064 0.9832781868949370
+139 0.0143613579468548 0.0017932022796424 0.7991770843897612 0.9850713891745794
+140 0.0141182595783759 0.0016735242967520 0.8132953439681371 0.9867449134713313
+141 0.0138494457210152 0.0015558721335989 0.8271447896891523 0.9883007856049302
+142 0.0135540231737002 0.0014404600859237 0.8406988128628525 0.9897412456908539
+143 0.0132310795278724 0.0013275098928096 0.8539298923907249 0.9910687555836635
+144 0.0128796828940790 0.0012172508967440 0.8668095752848040 0.9922860064804074
+145 0.0124988816266331 0.0011099202059600 0.8793084569114370 0.9933959266863674
+146 0.0120877040463403 0.0010057628590714 0.8913961609577773 0.9944016895454388
+147 0.0116451581612946 0.0009050319920185 0.9030413191190719 0.9953067215374574
+148 0.0111702313857412 0.0008079890073411 0.9142115505048132 0.9961147105447984
+149 0.0106618902570072 0.0007149037457932 0.9248734407618203 0.9968296142905916
+150 0.0101190801505000 0.0006260546603182 0.9349925209123203 0.9974556689509098
+151 0.0095407249927742 0.0005417289923973 0.9445332459050946 0.9979973979433071
+152 0.0089257269726653 0.0004622229507909 0.9534589728777599 0.9984596208940980
+153 0.0082729662504917 0.0003878418926853 0.9617319391282516 0.9988474627867834
+154 0.0075813006653245 0.0003189005072646 0.9693132397935761 0.9991663632940480
+155 0.0068495654403250 0.0002557230017202 0.9761628052339011 0.9994220862957681
+156 0.0060765728861500 0.0001986432897175 0.9822393781200511 0.9996207295854856
+157 0.0052611121024249 0.0001480051823329 0.9875004902224760 0.9997687347678186
+158 0.0044019486772844 0.0001041625814794 0.9919024388997604 0.9998728973492980
+159 0.0034978243849815 0.0000674796758353 0.9954002632847418 0.9999403770251333
+160 0.0025474568815635 0.0000383311392938 0.9979477201663053 0.9999787081644271
+161 0.0015495393986166 0.0000171023319475 0.9994972595649219 0.9999958104963745
+162 0.0005027404350778 0.0000041895036256 0.9999999999999997 1.0000000000000002
+
+ ndtfast, nfast =  120 162   nfast/ndtfast =  1.35000
+
+ Centers of gravity and integrals (values must be 1, 1, approx 1/2, 1, 1):
+
+    1.000000000000 1.016453155986 0.508226577993 1.000000000000 1.000000000000
+
+ Power filter parameters, Fgamma, gamma =  0.28400   0.26033
+
+ Metrics information for Grid 02:
+ ===============================
+
+ Minimum X-grid spacing, DXmin =  7.54644311E-01 km    Water points =  7.54644311E-01 km
+ Maximum X-grid spacing, DXmax =  7.64505838E-01 km    Water points =  7.64505838E-01 km
+ Minimum Y-grid spacing, DYmin =  7.54692788E-01 km    Water points =  7.54692788E-01 km
+ Maximum Y-grid spacing, DYmax =  7.64512362E-01 km    Water points =  7.64512362E-01 km
+ Minimum Z-grid spacing, DZmin =  3.66990185E+00 m     Water points =  3.66990185E+00 m
+ Maximum Z-grid spacing, DZmax =  5.53877624E+02 m     Water points =  5.53877624E+02 m
+
+ Minimum barotropic Courant Number =  2.73092353E-02
+ Maximum barotropic Courant Number =  3.01097835E-02
+ Maximum Coriolis   Courant Number =  3.08583822E-04
+
+ Horizontal mixing scaled by grid area squared root, MAXVAL(grdscl) =  7.64502563E-01 km  (Water points)
+
+ Refined Nested Grid(s) Information: 
+ ==================================
+
+ Refined    Donor   Refined   Timestep   Refined
+  Grid      Grid    Scale      Ratio   Timesteps
+
+    02        01       03      3.00000      03
+
+ WARNING: Usually the number of Refined Timesteps must be the same
+          as the Refined Scale for numerical stability.
+
+ Processor            2  of            4 did sucesfully complete set_grid funtion for ng =            2
+ Processor            0  of            4 did sucesfully complete set_grid funtion for ng =            2
+ Processor            3  of            4 did sucesfully complete set_grid funtion for ng =            2
+ Processor            1  of            4 did sucesfully complete set_grid funtion for ng =            2
+
+ NLM: GET_STATE - Reading state initial conditions,                       2010-01-01 00:00:00.00
+                   (Grid 01, t = 0.0000, File: roms_IC_NEMO2ROMS_20100101_rem.nc, Rec=0001, Index=1)
+                - free-surface
+                   (Min =  0.00000000E+00 Max =  7.35159358E-01)
+                - vertically integrated u-momentum component
+                   (Min = -6.34245486E-01 Max =  4.15545246E-01)
+                - vertically integrated v-momentum component
+                   (Min = -7.63570126E-01 Max =  4.80323067E-01)
+                - u-momentum component
+                   (Min = -1.47032119E+00 Max =  7.35378619E-01)
+                - v-momentum component
+                   (Min = -1.50141444E+00 Max =  7.33494330E-01)
+                - potential temperature
+                   (Min =  0.00000000E+00 Max =  3.15854289E+01)
+                - salinity
+                   (Min =  0.00000000E+00 Max =  3.58511224E+01)
+
+ NLM: GET_STATE - Reading state initial conditions,                       2010-01-01 00:00:00.00
+                   (Grid 02, t = 0.0000, File: BoB1by48by3_ini.nc, Rec=0001, Index=1)
+                - free-surface
+                   (Min =  4.81887281E-01 Max =  6.36726876E-01)
+                - vertically integrated u-momentum component
+                   (Min = -1.19796210E-01 Max =  7.41125461E-02)
+                - vertically integrated v-momentum component
+                   (Min = -8.10515388E-02 Max =  7.29699576E-02)
+                - u-momentum component
+                   (Min = -7.66121572E-01 Max =  4.84619753E-01)
+                - v-momentum component
+                   (Min = -3.51647884E-01 Max =  4.22257003E-01)
+                - potential temperature
+                   (Min =  1.22195339E+00 Max =  2.95146351E+01)
+                - salinity
+                   (Min =  3.23847275E+01 Max =  3.51389656E+01)
+    GET_NGFLD   - tidal period
+                   (Grid = 01, Min =  4.30819210E+04 Max =  2.38071599E+06)
+    GET_2DFLD   - Tidal elevation amplitude
+                   (Grid = 01, Min =  1.62712252E-06 Max =  2.06092805E+01)
+    GET_2DFLD   - Tidal elevation phase angle
+                   (Grid = 01, Min =  2.11375408E-07 Max =  6.28318519E+00)
+    GET_2DFLD   - Tidal current inclination angle
+                   (Grid = 01, Min =  2.51616068E-07 Max =  6.28318510E+00)
+    GET_2DFLD   - Tidal current phase angle
+                   (Grid = 01, Min =  3.39987952E-07 Max =  6.28318523E+00)
+    GET_2DFLD   - maximum tidal current, ellipse major axis
+                   (Grid = 01, Min =  3.30007622E-07 Max =  1.39391661E+00)
+    GET_2DFLD   - minimum tidal current, ellipse minor axis
+                   (Grid = 01, Min = -4.74973584E-01 Max =  3.25783783E-01)
+    GET_2DFLD   - 10 metre U wind component,                       2010-01-01 00:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: ERA_BOB_UV_2010-18.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          0.0000
+                   (Min = -7.83076681E+00 Max =  3.41844684E+00)      regrid = T
+    GET_2DFLD   - 10 metre V wind component,                       2010-01-01 00:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: ERA_BOB_UV_2010-18.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          0.0000
+                   (Min = -8.82770188E+00 Max =  7.66094770E-01)      regrid = T
+    GET_2DFLD   - Surface Air Pressure,                            2010-01-01 00:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: ERA_BOB_MSLP_2010-18_DAILY_NOLEAP.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          0.0000
+                   (Min =  1.00710013E+03 Max =  1.01743328E+03)      regrid = T
+    GET_2DFLD   - Net Surface Shortwave Radiation,                 2010-01-01 00:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min =  1.77982514E-05 Max =  5.09790361E-05)      regrid = T
+    GET_2DFLD   - Net Surface Longwave Radiation,                  2010-01-01 00:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min = -3.01059123E-05 Max = -8.30680314E-06)      regrid = T
+    GET_2DFLD   - Air Temperature at 2m height,                    2010-01-01 00:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min =  1.75574932E+01 Max =  2.89987500E+01)      regrid = T
+    GET_2DFLD   - Specific Humidity at 2m height,                  2010-01-01 00:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min =  9.05287794E+00 Max =  2.00561827E+01)      regrid = T
+    GET_2DFLD   - RAIN RATE,                                       2010-01-01 00:00:00.00
+                   (Grid=01, Rec=1, Index=1, File: TRMM_PPT_RATE_Final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min =  0.00000000E+00 Max =  3.47530601E-04)      regrid = T
+    GET_NGFLD   - 3D u-momentum western boundary condition,        2010-01-01 00:00:00.00
+                   (Grid= 01, Rec=1, Index=2, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          0.0000
+                   (Min = -1.12532973E+00 Max =  2.67867595E-01)
+    GET_NGFLD   - 3D v-momentum western boundary condition,        2010-01-01 00:00:00.00
+                   (Grid= 01, Rec=1, Index=2, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          0.0000
+                   (Min = -6.83784962E-01 Max =  1.64884731E-01)
+    GET_NGFLD   - 3D u-momentum southern boundary condition,       2010-01-01 00:00:00.00
+                   (Grid= 01, Rec=1, Index=2, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          0.0000
+                   (Min = -8.57010245E-01 Max =  7.35378623E-01)
+    GET_NGFLD   - 3D v-momentum southern boundary condition,       2010-01-01 00:00:00.00
+                   (Grid= 01, Rec=1, Index=2, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          0.0000
+                   (Min = -6.60316885E-01 Max =  5.78690469E-01)
+    GET_NGFLD   - potential temperature, western boundary condition2010-01-01 00:00:00.00
+                   (Grid= 01, Rec=1, Index=2, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          0.0000
+                   (Min =  0.00000000E+00 Max =  2.91889439E+01)
+    GET_NGFLD   - salinity, western boundary condition,            2010-01-01 00:00:00.00
+                   (Grid= 01, Rec=1, Index=2, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          0.0000
+                   (Min =  0.00000000E+00 Max =  3.52797661E+01)
+    GET_NGFLD   - potential temperature, southern boundary conditio2010-01-01 00:00:00.00
+                   (Grid= 01, Rec=1, Index=2, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          0.0000
+                   (Min =  0.00000000E+00 Max =  3.05118427E+01)
+    GET_NGFLD   - salinity, southern boundary condition,           2010-01-01 00:00:00.00
+                   (Grid= 01, Rec=1, Index=2, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          0.0000
+                   (Min =  0.00000000E+00 Max =  3.58511238E+01)
+    GET_2DFLD   - 10 metre U wind component,                       2010-01-01 00:00:00.00
+                   (Grid=02, Rec=1, Index=1, File: ERA_BOB_UV_2010-18.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          0.0000
+                   (Min = -6.06388022E+00 Max = -4.24485628E+00)      regrid = T
+    GET_2DFLD   - 10 metre V wind component,                       2010-01-01 00:00:00.00
+                   (Grid=02, Rec=1, Index=1, File: ERA_BOB_UV_2010-18.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          0.0000
+                   (Min = -7.17584151E+00 Max = -4.74290440E+00)      regrid = T
+    GET_2DFLD   - Surface Air Pressure,                            2010-01-01 00:00:00.00
+                   (Grid=02, Rec=1, Index=1, File: ERA_BOB_MSLP_2010-18_DAILY_NOLEAP.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          0.0000
+                   (Min =  1.00929827E+03 Max =  1.01185529E+03)      regrid = T
+    GET_2DFLD   - Net Surface Shortwave Radiation,                 2010-01-01 00:00:00.00
+                   (Grid=02, Rec=1, Index=1, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min =  2.45006010E-05 Max =  4.85821629E-05)      regrid = T
+    GET_2DFLD   - Net Surface Longwave Radiation,                  2010-01-01 00:00:00.00
+                   (Grid=02, Rec=1, Index=1, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min = -1.86063459E-05 Max = -1.24468352E-05)      regrid = T
+    GET_2DFLD   - Air Temperature at 2m height,                    2010-01-01 00:00:00.00
+                   (Grid=02, Rec=1, Index=1, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min =  2.68842036E+01 Max =  2.84593655E+01)      regrid = T
+    GET_2DFLD   - Specific Humidity at 2m height,                  2010-01-01 00:00:00.00
+                   (Grid=02, Rec=1, Index=1, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min =  1.58810658E+01 Max =  1.95459990E+01)      regrid = T
+    GET_2DFLD   - RAIN RATE,                                       2010-01-01 00:00:00.00
+                   (Grid=02, Rec=1, Index=1, File: TRMM_PPT_RATE_Final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          0.0000
+                   (Min =  0.00000000E+00 Max =  2.95813075E-05)      regrid = T
+
+ Basin information for Grid 01:
+
+ Maximum grid stiffness ratios:  rx0 =   2.403525E-01 (Beckmann and Haidvogel)
+                                 rx1 =   1.154087E+01 (Haney)
+
+ Initial domain volumes:  TotVolume =  7.9244369358E+15 m3
+                         MinCellVol =  5.5163907640E+05 m3
+                         MaxCellVol =  3.5252032769E+09 m3
+                            Max/Min =  6.3904161756E+03
+
+
+ Basin information for Grid 02:
+
+ Maximum grid stiffness ratios:  rx0 =   1.774557E-03 (Beckmann and Haidvogel)
+                                 rx1 =   2.307150E-02 (Haney)
+
+ Initial domain volumes:  TotVolume =  1.0858517078E+15 m3
+                         MinCellVol =  2.0905505956E+06 m3
+                         MaxCellVol =  3.2224399422E+08 m3
+                            Max/Min =  1.5414312139E+02
+
+
+ NL ROMS/TOMS: started time-stepping: (Grid: 01 TimeSteps: 000000000001 - 000000000002)
+ NL ROMS/TOMS: started time-stepping: (Grid: 02 TimeSteps: 000000000001 - 000000000006)
+
+    GET_2DFLD   - 10 metre U wind component,                       2010-01-02 00:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: ERA_BOB_UV_2010-18.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          1.0000
+                   (Min = -7.71286678E+00 Max =  1.70671006E+00)      regrid = T
+    GET_2DFLD   - 10 metre V wind component,                       2010-01-02 00:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: ERA_BOB_UV_2010-18.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          1.0000
+                   (Min = -8.01593454E+00 Max =  6.98286945E-01)      regrid = T
+    GET_2DFLD   - Surface Air Pressure,                            2010-01-02 00:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: ERA_BOB_MSLP_2010-18_DAILY_NOLEAP.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          1.0000
+                   (Min =  1.00811109E+03 Max =  1.01871569E+03)      regrid = T
+    GET_2DFLD   - Net Surface Shortwave Radiation,                 2010-01-02 00:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min =  8.99507621E-06 Max =  5.10714132E-05)      regrid = T
+    GET_2DFLD   - Net Surface Longwave Radiation,                  2010-01-02 00:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min = -3.20681741E-05 Max = -5.19594641E-06)      regrid = T
+    GET_2DFLD   - Air Temperature at 2m height,                    2010-01-02 00:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min =  1.74264603E+01 Max =  2.92365114E+01)      regrid = T
+    GET_2DFLD   - Specific Humidity at 2m height,                  2010-01-02 00:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min =  8.34108037E+00 Max =  2.00105773E+01)      regrid = T
+    GET_2DFLD   - RAIN RATE,                                       2010-01-02 00:00:00.00
+                   (Grid=01, Rec=2, Index=2, File: TRMM_PPT_RATE_Final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min =  0.00000000E+00 Max =  1.62139924E-03)      regrid = T
+    GET_NGFLD   - 3D u-momentum western boundary condition,        2010-01-02 00:00:00.00
+                   (Grid= 01, Rec=2, Index=1, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          1.0000
+                   (Min = -1.01038945E+00 Max =  2.11048096E-01)
+    GET_NGFLD   - 3D v-momentum western boundary condition,        2010-01-02 00:00:00.00
+                   (Grid= 01, Rec=2, Index=1, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          1.0000
+                   (Min = -6.93363905E-01 Max =  2.09763527E-01)
+    GET_NGFLD   - 3D u-momentum southern boundary condition,       2010-01-02 00:00:00.00
+                   (Grid= 01, Rec=2, Index=1, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          1.0000
+                   (Min = -9.42264318E-01 Max =  6.93125606E-01)
+    GET_NGFLD   - 3D v-momentum southern boundary condition,       2010-01-02 00:00:00.00
+                   (Grid= 01, Rec=2, Index=1, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          1.0000
+                   (Min = -4.98263747E-01 Max =  5.60303092E-01)
+    GET_NGFLD   - potential temperature, western boundary condition2010-01-02 00:00:00.00
+                   (Grid= 01, Rec=2, Index=1, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          1.0000
+                   (Min =  0.00000000E+00 Max =  2.92292385E+01)
+    GET_NGFLD   - salinity, western boundary condition,            2010-01-02 00:00:00.00
+                   (Grid= 01, Rec=2, Index=1, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          1.0000
+                   (Min =  0.00000000E+00 Max =  3.53023376E+01)
+    GET_NGFLD   - potential temperature, southern boundary conditio2010-01-02 00:00:00.00
+                   (Grid= 01, Rec=2, Index=1, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          1.0000
+                   (Min =  0.00000000E+00 Max =  3.04633408E+01)
+    GET_NGFLD   - salinity, southern boundary condition,           2010-01-02 00:00:00.00
+                   (Grid= 01, Rec=2, Index=1, File: roms_LBC_NEMO2ROMS_JFM2010.nc)
+                   (Tmin=          0.0000 Tmax=         89.0000)      t =          1.0000
+                   (Min =  0.00000000E+00 Max =  3.58400688E+01)
+
+ TIME-STEP YYYY-MM-DD hh:mm:ss.ss  KINETIC_ENRG   POTEN_ENRG    TOTAL_ENRG    NET_VOLUME  Grid
+                     C => (i,j,k)       Cu            Cv            Cw         Max Speed
+
+         0 2010-01-01 00:00:00.00  4.694953E-03  1.555675E+04  1.555675E+04  7.934408E+15  01
+                    (0224,096,40)  1.451526E-02  1.468227E-02  0.000000E+00  1.584752E+00
+    GET_2DFLD   - 10 metre U wind component,                       2010-01-02 00:00:00.00
+                   (Grid=02, Rec=2, Index=2, File: ERA_BOB_UV_2010-18.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          1.0000
+                   (Min = -5.68140701E+00 Max = -3.24311740E+00)      regrid = T
+    GET_2DFLD   - 10 metre V wind component,                       2010-01-02 00:00:00.00
+                   (Grid=02, Rec=2, Index=2, File: ERA_BOB_UV_2010-18.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          1.0000
+                   (Min = -7.23716847E+00 Max = -5.42995572E+00)      regrid = T
+    GET_2DFLD   - Surface Air Pressure,                            2010-01-02 00:00:00.00
+                   (Grid=02, Rec=2, Index=2, File: ERA_BOB_MSLP_2010-18_DAILY_NOLEAP.nc)
+                   (Tmin=          0.0000 Tmax=       3286.0000)      t =          1.0000
+                   (Min =  1.01039860E+03 Max =  1.01321083E+03)      regrid = T
+    GET_2DFLD   - Net Surface Shortwave Radiation,                 2010-01-02 00:00:00.00
+                   (Grid=02, Rec=2, Index=2, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min =  1.48392664E-05 Max =  3.45594456E-05)      regrid = T
+    GET_2DFLD   - Net Surface Longwave Radiation,                  2010-01-02 00:00:00.00
+                   (Grid=02, Rec=2, Index=2, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min = -1.75110869E-05 Max = -1.13889829E-05)      regrid = T
+    GET_2DFLD   - Air Temperature at 2m height,                    2010-01-02 00:00:00.00
+                   (Grid=02, Rec=2, Index=2, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min =  2.61214764E+01 Max =  2.82377506E+01)      regrid = T
+    GET_2DFLD   - Specific Humidity at 2m height,                  2010-01-02 00:00:00.00
+                   (Grid=02, Rec=2, Index=2, File: Tropflux_2010-18_final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min =  1.56845069E+01 Max =  1.90329104E+01)      regrid = T
+    GET_2DFLD   - RAIN RATE,                                       2010-01-02 00:00:00.00
+                   (Grid=02, Rec=2, Index=2, File: TRMM_PPT_RATE_Final.nc)
+                   (Tmin=          0.0000 Tmax=       3284.0000)      t =          1.0000
+                   (Min =  0.00000000E+00 Max =  4.35012130E-05)      regrid = T
+         0 2010-01-01 00:00:00.00  3.196088E-03  1.728668E+04  1.728668E+04  1.086027E+15  02
+                     (103,001,38)  9.581940E-03  1.089606E-03  0.000000E+00  7.664461E-01
+         1 2010-01-01 00:00:10.00  3.196104E-03  1.728668E+04  1.728668E+04  1.086027E+15  02
+                     (103,001,38)  9.582422E-03  1.091046E-03  1.455678E-05  7.665140E-01
+         2 2010-01-01 00:00:20.00  3.196116E-03  1.728668E+04  1.728668E+04  1.086027E+15  02
+                     (001,006,40)  9.212590E-03  2.923779E-04  6.680283E-03  7.667119E-01
+      FINE2COARSE - exchanging data between grids: dg = 02 and rg = 01  at cr = 02
+         1 2010-01-01 00:00:30.00  4.691862E-03  1.555674E+04  1.555674E+04  7.934405E+15  01
+                    (0217,108,04)  7.859962E-03  8.132574E-03  5.675171E-02  1.582528E+00
+         3 2010-01-01 00:00:30.00  3.196124E-03  1.728668E+04  1.728668E+04  1.086027E+15  02
+                     (001,003,40)  9.328156E-03  3.599184E-04  4.985009E-03  7.668999E-01
+         4 2010-01-01 00:00:40.00  3.196128E-03  1.728668E+04  1.728668E+04  1.086027E+15  02
+                     (004,001,40)  9.441846E-03  3.816126E-04  5.575983E-03  7.671096E-01
+         5 2010-01-01 00:00:50.00  3.196127E-03  1.728668E+04  1.728668E+04  1.086027E+15  02
+                     (001,010,40)  8.954842E-03  2.048546E-04  5.333195E-03  7.673405E-01
+      FINE2COARSE - exchanging data between grids: dg = 02 and rg = 01  at cr = 02
+         2 2010-01-01 00:01:00.00  4.689613E-03  1.555673E+04  1.555674E+04  7.934402E+15  01
+                    (0113,254,40)  2.377810E-03  5.118938E-03  5.779194E-01  1.587508E+00
+         6 2010-01-01 00:01:00.00  3.196122E-03  1.728668E+04  1.728668E+04  1.086027E+15  02
+                     (001,004,40)  9.297134E-03  3.381387E-04  4.758311E-03  7.675334E-01
+
+Elapsed wall CPU time for each process (seconds):
+
+ Node   #    3 CPU:     110.848
+ Node   #    2 CPU:     110.516
+ Node   #    1 CPU:     110.664
+ Node   #    0 CPU:     110.870
+ Total:                 442.899
+ Average:               110.725
+ Minimum:               110.516
+ Maximum:               110.870
+
+ Nonlinear model elapsed CPU time profile, Grid: 01
+
+  Allocation and array initialization ..............         7.362  ( 1.6621 %)
+  Ocean state initialization .......................         1.277  ( 0.2883 %)
+  Reading of input data ............................        11.044  ( 2.4937 %)
+  Processing of input data .........................         0.117  ( 0.0265 %)
+  Processing of output time averaged data ..........         1.534  ( 0.3464 %)
+  Computation of vertical boundary conditions ......         0.046  ( 0.0104 %)
+  Computation of global information integrals ......         0.978  ( 0.2208 %)
+  Writing of output data ...........................         0.000  ( 0.0000 %)
+  Model 2D kernel ..................................       107.194  (24.2028 %)
+  Tidal forcing ....................................         1.920  ( 0.4335 %)
+  2D/3D coupling, vertical metrics .................         5.027  ( 1.1350 %)
+  Omega vertical velocity ..........................         0.957  ( 0.2162 %)
+  Equation of state for seawater ...................         4.221  ( 0.9529 %)
+  Atmosphere-Ocean bulk flux parameterization ......         5.800  ( 1.3096 %)
+  KPP vertical mixing parameterization .............        19.603  ( 4.4260 %)
+  3D equations right-side terms ....................         3.539  ( 0.7990 %)
+  3D equations predictor step ......................         9.581  ( 2.1632 %)
+  Pressure gradient ................................         2.811  ( 0.6348 %)
+  Biharmonic mixing of tracers, geopotentials ......         8.865  ( 2.0016 %)
+  Harmonic stress tensor, geopotentials ............         7.808  ( 1.7629 %)
+  Corrector time-step for 3D momentum ..............         3.432  ( 0.7748 %)
+  Corrector time-step for tracers ..................         5.932  ( 1.3394 %)
+  Nesting algorithm ................................         2.868  ( 0.6475 %)
+                                              Total:       211.916   47.8475 %
+
+ MPI communications profile, Grid: 01
+
+  Message Passage: 2D halo exchanges ...............         9.851  ( 2.2241 %)
+  Message Passage: 3D halo exchanges ...............         5.999  ( 1.3546 %)
+  Message Passage: 4D halo exchanges ...............         1.494  ( 0.3374 %)
+  Message Passage: data broadcast ..................         5.716  ( 1.2906 %)
+  Message Passage: data reduction ..................         0.575  ( 0.1299 %)
+  Message Passage: data scattering..................        16.117  ( 3.6390 %)
+  Message Passage: boundary data gathering .........         0.112  ( 0.0253 %)
+  Message Passage: point data gathering ............         0.000  ( 0.0000 %)
+  Message Passage: nesting point data gathering ....         3.042  ( 0.6868 %)
+  Message Passage: synchronization barrier .........         0.166  ( 0.0375 %)
+                                              Total:        43.072    9.7251 %
+
+ Nonlinear model elapsed CPU time profile, Grid: 02
+
+  Allocation and array initialization ..............         7.362  ( 1.6621 %)
+  Ocean state initialization .......................         0.861  ( 0.1945 %)
+  Reading of input data ............................         2.353  ( 0.5312 %)
+  Processing of input data .........................         0.221  ( 0.0499 %)
+  Processing of output time averaged data ..........         3.217  ( 0.7263 %)
+  Computation of vertical boundary conditions ......         0.053  ( 0.0120 %)
+  Computation of global information integrals ......         1.119  ( 0.2528 %)
+  Writing of output data ...........................         0.000  ( 0.0000 %)
+  Model 2D kernel ..................................        97.883  (22.1005 %)
+  Tidal forcing ....................................         0.000  ( 0.0000 %)
+  2D/3D coupling, vertical metrics .................         2.053  ( 0.4636 %)
+  Omega vertical velocity ..........................         1.028  ( 0.2320 %)
+  Equation of state for seawater ...................         4.450  ( 1.0049 %)
+  Atmosphere-Ocean bulk flux parameterization ......         7.581  ( 1.7117 %)
+  KPP vertical mixing parameterization .............        22.938  ( 5.1790 %)
+  3D equations right-side terms ....................         3.477  ( 0.7850 %)
+  3D equations predictor step ......................         9.297  ( 2.0991 %)
+  Pressure gradient ................................         2.877  ( 0.6496 %)
+  Biharmonic mixing of tracers, geopotentials ......         8.555  ( 1.9317 %)
+  Harmonic stress tensor, geopotentials ............         8.207  ( 1.8530 %)
+  Corrector time-step for 3D momentum ..............         3.395  ( 0.7666 %)
+  Corrector time-step for tracers ..................         4.726  ( 1.0671 %)
+  Nesting algorithm ................................        14.134  ( 3.1912 %)
+                                              Total:       205.789   46.4640 %
+
+  Unique kernel(s) regions profiled ................       417.704   94.3115 %
+  Residual, non-profiled code ......................        25.194    5.6885 %
+
+
+ All percentages are with respect to total time =          442.899
+
+
+ MPI communications profile, Grid: 02
+
+  Message Passage: 2D halo exchanges ...............        35.301  ( 7.9704 %)
+  Message Passage: 3D halo exchanges ...............         1.887  ( 0.4261 %)
+  Message Passage: 4D halo exchanges ...............         0.988  ( 0.2231 %)
+  Message Passage: data broadcast ..................         2.421  ( 0.5467 %)
+  Message Passage: data reduction ..................         0.196  ( 0.0443 %)
+  Message Passage: data scattering..................         7.937  ( 1.7922 %)
+  Message Passage: nesting point data gathering ....         1.418  ( 0.3201 %)
+  Message Passage: nesting array data gathering ....        10.038  ( 2.2665 %)
+                                              Total:        60.187   13.5893 %
+
+ MPI communications profile over all nested grids:
+
+  Message Passage: 2D halo exchanges ...............        45.152  (10.1946 %)
+  Message Passage: 3D halo exchanges ...............         7.886  ( 1.7806 %)
+  Message Passage: 4D halo exchanges ...............         2.482  ( 0.5605 %)
+  Message Passage: data broadcast ..................         8.137  ( 1.8373 %)
+  Message Passage: data reduction ..................         0.771  ( 0.1742 %)
+  Message Passage: data scattering..................        24.055  ( 5.4312 %)
+  Message Passage: boundary data gathering .........         0.112  ( 0.0253 %)
+  Message Passage: point data gathering ............         0.000  ( 0.0000 %)
+  Message Passage: nesting point data gathering ....         4.459  ( 1.0068 %)
+  Message Passage: nesting array data gathering ....        10.038  ( 2.2665 %)
+  Message Passage: synchronization barrier .........         0.166  ( 0.0375 %)
+                                              Total:       103.259   23.3144 %
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ Dynamic and Automatic memory (MB) usage for Grid 01:  1055x942x40  tiling: 2x2
+
+     tile          Dynamic        Automatic            USAGE      MPI-Buffers
+
+        0          4978.83           654.56          5633.40           319.30
+        1          4971.11           654.56          5625.67           319.30
+        2          4987.49           654.56          5642.05           319.30
+        3          4979.75           654.56          5634.31           319.30
+
+      SUM         19917.18          2618.25         22535.43          1277.19
+
+ Dynamic and Automatic memory (MB) usage for Grid 02:  900x600x40  tiling: 2x2
+
+     tile          Dynamic        Automatic            USAGE      MPI-Buffers
+
+        0          2606.12           403.11          3009.23           403.11
+        1          2601.13           403.11          3004.23           403.11
+        2          2598.69           403.11          3001.79           403.11
+        3          2593.71           403.11          2996.81           403.11
+
+      SUM         10399.64          1612.42         12012.06          1612.42
+
+    TOTAL         30316.82          4230.67         34547.49          2889.62
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+ ROMS/TOMS - Output NetCDF summary for Grid 01:
+
+ ROMS/TOMS - Output NetCDF summary for Grid 02:
+
+ Analytical header files used:
+
+     ROMS/Functionals/ana_btflux.h
+     ROMS/Functionals/ana_fsobc.h
+     ROMS/Functionals/ana_m2obc.h
+
+ ROMS/TOMS: DONE... Thursday - October 24, 2024 -  4:15:03 PM

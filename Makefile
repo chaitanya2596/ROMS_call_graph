@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++17 -lstdc++fs
 OBJDIR = build_graph
 DIR = /mnt/h/IISc/Call_Graph/WORKING/callGraph/Build_roms
 INCLUDE_NF90 = 0  # Set to 1 to include nf90 functions, 0 otherwise
-StartFunction = ocean
+StartFunction = ocean*
 
 # Targets and dependencies
 all: $(OBJDIR) $(OBJDIR)/basefuncName $(OBJDIR)/csv callGraph
